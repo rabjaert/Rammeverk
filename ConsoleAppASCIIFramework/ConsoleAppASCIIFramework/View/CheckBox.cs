@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ConsoleAppASCIIFramework.View;
 
 namespace ConsoleAppASCIIFramework.View
 {
@@ -22,18 +20,18 @@ namespace ConsoleAppASCIIFramework.View
             this.width = width;
             this.posX = posX;
             this.posY = posY;
-         
-           
         }
-
-
-
-
-
-
     }
-
-
-
-
 }
+
+    class RadioButton : CheckBox
+    {
+        public RadioButton(int height, int width, int posX, int posY)
+        {
+        this.height = height;
+        this.width = width;
+        this.posX = posX;
+        this.posY = posY;
+        }
+}
+
