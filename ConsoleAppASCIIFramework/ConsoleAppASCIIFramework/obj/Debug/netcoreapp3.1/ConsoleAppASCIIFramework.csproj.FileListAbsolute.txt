@@ -1,0 +1,11 @@
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\bin\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.exe
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\bin\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.deps.json
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\bin\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.runtimeconfig.json
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\bin\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.runtimeconfig.dev.json
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\bin\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.dll
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\bin\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.pdb
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\obj\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.csprojAssemblyReference.cache
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\obj\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.AssemblyInfoInputs.cache
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\obj\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.AssemblyInfo.cs
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\obj\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.dll
+D:\GitHub\Rammeverk\ConsoleAppASCIIFramework\ConsoleAppASCIIFramework\obj\Debug\netcoreapp3.1\ConsoleAppASCIIFramework.pdb
