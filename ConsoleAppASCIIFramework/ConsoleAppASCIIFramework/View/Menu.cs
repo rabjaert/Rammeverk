@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace ConsoleAppASCIIFramework.View
 {
     abstract class Menu : View

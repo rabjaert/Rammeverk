@@ -1,6 +1,7 @@
 ﻿using ConsoleAppASCIIFramework.View;
 using System;
 
+
 namespace ConsoleAppASCIIFramework
 {
     class Program
@@ -9,52 +10,35 @@ namespace ConsoleAppASCIIFramework
         {
 
             var start = new Application();
+            start.initialize();
 
-            var mainWindow = new Window("main") {
-
-                Width = 100;
-                Height = 100;
-                BackgroundColor = "Green";
-                
-            }
-
-            start.add(mainWindow);
-
-
-            var menuForMainWindow = new NavigationMenu(1, 1, mainWindow)
-            {
-                new menuField(1, "Settings") => settingsWindow.Open();
-            }
+            var mainWindow = new Window(100,100,"black", start);
             
 
+            ButtonClicked enButton = new ButtonClicked("hei", 1, 1, 1, 1);
+            enButton.OnActionButton();
 
-       
-                
-            menuForMainWindow.changeTextColor("red");
+            mainWindow.addedViews = addedViews.toList().Add(enButton);
+        } 
+    }
+}
 
     
 
 
-            
-            NagivationMenu nagivationMenu = new NagivationMenu("bolle");
-            Console.WriteLine(nagivationMenu);
-            
+         
+     
 
+//        dropdown menu
+  //      menuBar
+    //    checkbox : Clicked, width, height, x, y
+      //  button : Action, Size, Color, Text
+        //radio button
+        //textfield : Size, Position, Content
+        //textbox : Size, Position, Content
+        //textlabel : Size, Position, Content
+      //  asciiImage
+    //    asciiDrawing
+  //      listview
+//        Menu : Size, Color, Type, Text, Clickable, Action, Position
 
-        dropdown menu
-        menuBar
-        checkbox : Clicked, width, height, x, y
-        button : Action, Size, Color, Text
-        radio button
-        textfield : Size, Position, Content
-        textbox : Size, Position, Content
-        textlabel : Size, Position, Content
-        asciiImage
-        asciiDrawing
-        listview
-        Menu : Size, Color, Type, Text, Clickable, Action, Position
-
-
-        }
-    }
-}
