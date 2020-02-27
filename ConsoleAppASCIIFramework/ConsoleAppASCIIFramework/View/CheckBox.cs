@@ -5,8 +5,8 @@ namespace ConsoleAppASCIIFramework.View
    abstract class CheckBox : View
     {
         protected bool Clicked;
-        protected int height;
         protected int width;
+        protected int height;
         protected int posX;
         protected int posY;
 
@@ -14,10 +14,10 @@ namespace ConsoleAppASCIIFramework.View
 
     class ClickableCheckBox : CheckBox
     {
-        public ClickableCheckBox(int height, int width, int posX, int posY)
+        public ClickableCheckBox(int width, int height, int posX, int posY)
         {
-            this.height = height;
             this.width = width;
+            this.height = height;
             this.posX = posX;
             this.posY = posY;
         }

@@ -8,23 +8,23 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Hjemmets\\.nuget\\packages\\": {},
-    "D:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Henri\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Rammeverk\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework.csproj",
+      "projectUniqueName": "C:\\Users\\Henri\\Documents\\GitHub\\Rammeverk\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework.csproj",
       "projectName": "ConsoleAppASCIIFramework",
-      "projectPath": "D:\\GitHub\\Rammeverk\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework.csproj",
-      "packagesPath": "C:\\Users\\Hjemmets\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Rammeverk\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework\\obj\\",
+      "projectPath": "C:\\Users\\Henri\\Documents\\GitHub\\Rammeverk\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework.csproj",
+      "packagesPath": "C:\\Users\\Henri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Henri\\Documents\\GitHub\\Rammeverk\\ConsoleAppASCIIFramework\\ConsoleAppASCIIFramework\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hjemmets\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Henri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
