@@ -1,4 +1,5 @@
 ﻿using ConsoleAppASCIIFramework.View;
+using System;
 
 
 namespace ConsoleAppASCIIFramework
@@ -9,14 +10,15 @@ namespace ConsoleAppASCIIFramework
         {
 
             var start = new Application();
+            start.initialize();
 
-            var mainWindow = new Window(100,100,"black");
+            var mainWindow = new Window(100,100,"black", start);
             
 
             ButtonClicked enButton = new ButtonClicked("hei", 1, 1, 1, 1);
             enButton.OnActionButton();
 
-            mainWindow.addedViews = enButton;
+            mainWindow.addedViews = addedViews.toList().Add(enButton);
         } 
     }
 }

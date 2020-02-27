@@ -15,9 +15,11 @@ namespace ConsoleAppASCIIFramework.View
         }
 
     }
-
     class ButtonClicked : Button
     {
+
+        private bool isClicked;
+
        public ButtonClicked(string placeholder, int height, int width, int posX, int posY)
         {
             this.placeholder = placeholder;
@@ -25,6 +27,7 @@ namespace ConsoleAppASCIIFramework.View
             this.width = width;
             this.posX = posX;
             this.posY = posY;
+            OnActionButton();
 
         }
 
