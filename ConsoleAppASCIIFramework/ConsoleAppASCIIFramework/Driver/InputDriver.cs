@@ -13,9 +13,6 @@ namespace ConsoleAppASCIIFramework.Driver
         public static void KeyPressed()
         {
 
-            
-
-
             if(Mouse.LeftButton == MouseButtonState.Pressed)
             {
                 //doSomething();
@@ -24,8 +21,6 @@ namespace ConsoleAppASCIIFramework.Driver
             {
                 //doSomething();
             }
-
-
 
         }
 

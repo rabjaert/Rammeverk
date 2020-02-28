@@ -8,9 +8,9 @@ namespace ConsoleAppASCIIFramework
     {
         //All the view classes derived from the View-class, and every class has a abstract method for general variables etc
         //so it's easy to add more functionality to the framework
-        
-        
-        
+
+
+
         static void Main(string[] args)
         {
 
@@ -44,7 +44,7 @@ namespace ConsoleAppASCIIFramework
              * so make a calculator 
              * 
              */
-            
+
             var start2 = new Application();
             start.initialize();
 
@@ -78,7 +78,7 @@ namespace ConsoleAppASCIIFramework
             mainWindow.addedViews.Add(secondTextBlock);
             mainWindow.addedViews.Add(secondTextField);
 
-            
+
             //    ]
             // 3. Excel sheet [
             var star1t = new Application();
@@ -86,27 +86,19 @@ namespace ConsoleAppASCIIFramework
 
 
             var tertiaryWindow = new Window(200, 100, "black", start);
-            int w=0, h=0, x=0, y=0;
-            for(int i=0; i<10; i++){
-                tertiaryWindow.addedViews.Add(new TextInputField("", 5, 10, 0, 0);
+            int w = 0, h = 0, x = 0, y = 0;
+            for (int i = 0; i < 10; i++) {
+                tertiaryWindow.addedViews.Add(new TextInputField("", 5, 10, 0, 0));
                 w += 10;
                 h += 5;
                 x += 10;
-                if (i==5)
+                if (i == 5)
                 {
                     y += 5;
                 }
 
-                tertiaryWindow.addedViews[1]
-            
             }
-
-//]
-
-
-
-
-}
+        }
     }
 }
 

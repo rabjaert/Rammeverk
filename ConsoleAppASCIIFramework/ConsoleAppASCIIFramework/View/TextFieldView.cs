@@ -6,35 +6,35 @@ namespace ConsoleAppASCIIFramework.View
 {
     abstract class TextFieldView : View
     {
-        protected string textContent;
-        protected int width;
-        protected int height;
-        protected int posX;
-        protected int posY;
+        protected string TextContent;
+        protected int Width;
+        protected int Height;
+        protected int PosX;
+        protected int PosY;
     }
 
     class TextLabel : TextFieldView
     {
         public TextLabel(string textContent, int width, int height, int posX, int posY)
         {
-            base.textContent = textContent;
-            base.width = width;
-            base.height = height;
-            base.posX = posX;
-            base.posY = posY;
+            base.TextContent = textContent;
+            base.Width = width;
+            base.Height = height;
+            base.PosX = posX;
+            base.PosY = posY;
         }
     }
 
     class TextInputField : TextFieldView
     {
-        protected string placeHolderText;
+        protected string PlaceHolderText;
         public TextInputField(string placeHolderText, int width, int height, int posX, int posY)
         {
-            this.placeHolderText = placeHolderText;
-            base.width = width;
-            base.height = height;
-            base.posX = posX;
-            base.posY = posY;
+            this.PlaceHolderText = placeHolderText;
+            base.Width = width;
+            base.Height = height;
+            base.PosX = posX;
+            base.PosY = posY;
         }
     }
 

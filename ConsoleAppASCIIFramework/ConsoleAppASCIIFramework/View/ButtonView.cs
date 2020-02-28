@@ -3,7 +3,7 @@ namespace ConsoleAppASCIIFramework.View
 {
     abstract class ButtonView : View
     {
-        protected string Placeholder;
+        protected string PlaceHolderText;
         protected int Width;
         protected int Height;
         protected int PosX;
@@ -21,9 +21,9 @@ namespace ConsoleAppASCIIFramework.View
 
         private bool isClicked;
 
-       public ButtonClicked(string placeholder, int width, int height, int posX, int posY)
+       public ButtonClicked(string placeHolderText, int width, int height, int posX, int posY)
         {
-            this.Placeholder = placeholder;
+            this.PlaceHolderText = placeHolderText;
             this.Width = width;
             this.Height = height;
             this.PosX = posX;
