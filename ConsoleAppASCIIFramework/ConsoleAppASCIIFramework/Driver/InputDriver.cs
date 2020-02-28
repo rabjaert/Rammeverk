@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace ConsoleAppASCIIFramework.Driver
 {
-    class Keybindings
+    class InputDriver
     {
 
         public static System.Windows.Input.MouseButtonState LeftButton { get; }

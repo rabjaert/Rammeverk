@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleAppASCIIFramework.View
 {
-    abstract class TextField : View
+    abstract class TextFieldView : View
     {
         protected string textContent;
         protected int width;
@@ -13,7 +13,7 @@ namespace ConsoleAppASCIIFramework.View
         protected int posY;
     }
 
-    class TextLabel : TextField
+    class TextLabel : TextFieldView
     {
         public TextLabel(string textContent, int width, int height, int posX, int posY)
         {
@@ -25,7 +25,7 @@ namespace ConsoleAppASCIIFramework.View
         }
     }
 
-    class TextInputField : TextField
+    class TextInputField : TextFieldView
     {
         protected string placeHolderText;
         public TextInputField(string placeHolderText, int width, int height, int posX, int posY)
