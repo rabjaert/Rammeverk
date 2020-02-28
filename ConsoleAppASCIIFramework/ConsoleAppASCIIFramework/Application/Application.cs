@@ -7,7 +7,7 @@ namespace ConsoleAppASCIIFramework.View
 
         protected Application application;
 
-        public void initialize()
+        public void Initialize()
         {
 
         }

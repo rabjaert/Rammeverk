@@ -23,7 +23,7 @@ namespace ConsoleAppASCIIFramework
 
 
             var start = new Application();
-            start.initialize();
+            start.Initialize();
 
             var mainWindow = new Window(100, 100, "black", start);
 
@@ -31,7 +31,7 @@ namespace ConsoleAppASCIIFramework
             ButtonClicked enButton = new ButtonClicked("hei", 1, 1, 1, 1);
             enButton.OnActionButton();
 
-            mainWindow.addedViews.Add(enButton);
+            mainWindow.AddedViews.Add(enButton);
 
             new TextLabel("ku", 10, 20, 0, 0);
             new TextInputField("Enter Name", 10, 20, 30, 40);
@@ -46,7 +46,7 @@ namespace ConsoleAppASCIIFramework
              */
 
             var start2 = new Application();
-            start.initialize();
+            start.Initialize();
 
             var mainWindow2 = new Window(100, 100, "black", start);
 
@@ -69,26 +69,26 @@ namespace ConsoleAppASCIIFramework
             var secondTextBlock = new TextLabel("5", 10, 20, 0, 0);
             var secondTextField = new TextInputField("Enter the second number", 10, 20, 30, 40);
 
-            mainWindow.addedViews.Add(addButton);
-            mainWindow.addedViews.Add(substractButton);
-            mainWindow.addedViews.Add(divideButton);
-            mainWindow.addedViews.Add(multiplyButton);
-            mainWindow.addedViews.Add(firstTextBlock);
-            mainWindow.addedViews.Add(firstTextField);
-            mainWindow.addedViews.Add(secondTextBlock);
-            mainWindow.addedViews.Add(secondTextField);
+            mainWindow.AddedViews.Add(addButton);
+            mainWindow.AddedViews.Add(substractButton);
+            mainWindow.AddedViews.Add(divideButton);
+            mainWindow.AddedViews.Add(multiplyButton);
+            mainWindow.AddedViews.Add(firstTextBlock);
+            mainWindow.AddedViews.Add(firstTextField);
+            mainWindow.AddedViews.Add(secondTextBlock);
+            mainWindow.AddedViews.Add(secondTextField);
 
 
             //    ]
             // 3. Excel sheet [
             var star1t = new Application();
-            star1t.initialize();
+            star1t.Initialize();
 
 
             var tertiaryWindow = new Window(200, 100, "black", start);
             int w = 0, h = 0, x = 0, y = 0;
             for (int i = 0; i < 10; i++) {
-                tertiaryWindow.addedViews.Add(new TextInputField("", 5, 10, 0, 0));
+                tertiaryWindow.AddedViews.Add(new TextInputField("", 5, 10, 0, 0));
                 w += 10;
                 h += 5;
                 x += 10;
