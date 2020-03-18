@@ -1,6 +1,6 @@
 package Interfaces.BinaryTree;
-public interface IBinaryTree<E>{
-    void add(E element);
-    boolean contains(E element);
-    void remove(E element);
+public interface IBinaryTree<T>{
+    void add(T element);
+    boolean contains(T element);
+    void remove(T element);
 }
