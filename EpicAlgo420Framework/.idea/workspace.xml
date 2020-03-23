@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="888a62c0-a19d-4650-bec6-57a7545d5c50" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Data/BinaryTree/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Data/BinaryTree/BinaryTree.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,6 +64,7 @@
       <workItem from="1584531881694" duration="753000" />
       <workItem from="1584532664600" duration="348000" />
       <workItem from="1584537853218" duration="1980000" />
+      <workItem from="1584963794549" duration="6000" />
     </task>
     <servers />
   </component>

@@ -1,95 +1,81 @@
 package Data.BinaryTree;
-
-import Interfaces.BinaryTree.IBinaryTree;
-
-public class BinaryTree<T extends Comparable<T>> implements IBinaryTree<T>{
-
-    public Node<T> root;
-
-
-private static class Node<T extends Comparable<T>> {
-    public T data;
-    public Node<T> left, right;
-    //public int counter;
-
-    public Node(T data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-} 
-public void inOrder(Node<T> root) {
-    if (root != null) {
-        inOrder(root.left);
-        System.out.print(root.data.toString() +" \n");
-        inOrder(root.right);
-    }
-}
-
-public Node<T> insertNode(Node<T> node, T data) {
-
-    if(node == null){
-        node = new Node<T>(data);
-    }
-
-    else if(data.compareTo(node.data) < 0) {
-
-        node.left = insertNode(node.left, data);
-    }
-
-    else {
-        node.right = insertNode(node.right, data);
-
-    }
-
-    return node;
-}
-
-public void traverseAndPrint() {
-    print(root);
-}
-
-public void print(Node<T> node){
-    if(node == null){
-        return;
-    }
-
-    print(node.left);
-    System.out.println(node);
-    print(node.right);
-
-
-}
-
-
-
-
-    @Override
-    public void add(T element) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public boolean contains(T element) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public void remove(T element) {
-        // TODO Auto-generated method stub
-
-    }
-
-
-    @Override
-    public String toString() {
-        return "TreeNode{" + root +
-                "data=" + root.data +
-                '}';
-    }
-
-
-
+	
+public class BinaryTree<T extends Comparable<T>> {
+	TreeNode<T> root;
+	
+	public BinaryTree() {
+		super();
+		this.root = new TreeNode<T>();
+	}
+ 
+	public BinaryTree(T o) {
+		super();
+		// TODO Auto-generated constructor stub
+		TreeNode<T> node = new TreeNode<T>(o);
+		this.root = node;
+	}
+	
+	public void add(T o) {
+		if (root == null) {
+			root = new TreeNode<T>(o);
+		} else {
+			root.insert(o);
+		}
+	}
+	
+	public boolean isMember (TreeNode<T> node, T o) {
+		if(node == null) return false;
+		
+		if (node.element.compareTo(o) == 0) {
+			return true;
+		} else if (node.element.compareTo(o) < 0) {
+			isMember(node.right, o);
+		} else {
+			isMember(node.left, o);
+		}
+		return false;
+	}
+	
+	public void preOrderHelper (TreeNode<T> node) {
+		if (node != null) {
+			node.visit();
+			preOrderHelper(node.left);
+			preOrderHelper(node.right);
+		}
+	}
+	
+	public void inOrderHelper(TreeNode<T> node) {
+		if (node != null) {
+			inOrderHelper(node.left);
+			node.visit();
+			inOrderHelper(node.right);
+		}
+	}
+	
+	public void postOrderHelper(TreeNode<T> node) {
+		if (node != null) {
+			postOrderHelper(node.left);
+			postOrderHelper(node.right);
+			node.visit();
+		}
+	}
+	
+	public void preOrder() {
+		if (root != null) {
+			preOrderHelper(root);
+		}
+	}
+	
+	public void inOrder() {
+		if (root != null) {
+			inOrderHelper(root);
+		}
+	}
+	
+	public void postOrder() {
+		if (root != null) {
+			postOrderHelper(root);
+		}
+	}
+	
 }
