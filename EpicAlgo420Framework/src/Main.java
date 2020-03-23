@@ -52,17 +52,17 @@ public class Main {
 
         //TestGenericBinary<Actor> acaaatorTre = new TestGenericBinary<>(byFirstName);
 
-        ArrayList<Actor> bæsj = new ArrayList<Actor>();
-        bæsj.add(person1);
-        bæsj.add(person2);
-        bæsj.add(person3);
-        bæsj.add(person4);
-        bæsj.add(person5);
-        bæsj.add(person6);
-        bæsj.add(person7);
-        bæsj.add(person8);
+        ArrayList<Actor> ikkeAvføring = new ArrayList<Actor>();
+        ikkeAvføring.add(person1);
+        ikkeAvføring.add(person2);
+        ikkeAvføring.add(person3);
+        ikkeAvføring.add(person4);
+        ikkeAvføring.add(person5);
+        ikkeAvføring.add(person6);
+        ikkeAvføring.add(person7);
+        ikkeAvføring.add(person8);
 
-       actorTre.insertItemList(bæsj);
+       actorTre.insertItemList(ikkeAvføring);
 
        actorTre.inOrder(actorTre.root);
        
