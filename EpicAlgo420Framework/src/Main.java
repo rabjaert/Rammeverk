@@ -23,8 +23,8 @@ public class Main {
        
 
         Actor person1 = new Actor("Roger", "Knutsen", 20);
-        Actor person2 = new Actor("Robert", "Lundeby", 31);
-        Actor person3 = new Actor("Ragnar","Mørk", 69);
+        Actor person2 = new Actor("Robert", "Lundeby", 32);
+        Actor person3 = new Actor("Robert", "Lundeby", 31);
         Actor person4 = new Actor("Snoop","Dog",40);
         Actor person5 = new Actor("Zelda", "Hambeg", 20);
         Actor person6 = new Actor("Niklas", "Berby", 31);
@@ -38,10 +38,13 @@ public class Main {
             }
         };
 
+        Comparator<Actor> compareFornavn = Comparator.comparing( Actor::getFornavn );
+        Comparator<Actor> compareFornavnOgAlder = compareFornavn.thenComparingInt(Actor::getAlder);
+
 
         Comparator<Actor> byAge = (Actor o1, Actor o2) ->o1.getAlder() - o2.getAlder();
 
-        TestGenericBinary<Actor> actorTre = new TestGenericBinary<>(byAge);
+        TestGenericBinary<Actor> actorTre = new TestGenericBinary<>(compareFornavnOgAlder);
 
         Comparator<Actor> byFirstName = 
         (Actor o1, Actor o2)->o1.getFornavn().compareTo(o2.getFornavn());
@@ -64,41 +67,18 @@ public class Main {
 
        actorTre.insertItemList(ikkeAvføring);
 
+
+
+       actorTre.deleteNode(actorTre.root, person2);
+       System.out.println("\n");
+       
+
        actorTre.inOrder(actorTre.root);
        
-        /* 
-        ArrayList<Actors> actors = new ArrayList<>();
+       
+      
+       
+    
 
-        etTre.add(actors);
-        etTre.traverseAndPrint();
-        etTre.getMaxData();
-        etTre.GetElement(2);
-        etTre.search(actor.id = 1);*/
-
-        
-        
-
-
-        /*
-        for (String i : data) {
-            etTre.insertNode(etTre.root, i);
-            System.out.print(i);
-            
-        }
-        System.out.println("traverseandprint");
-        etTre.traverseAndPrint();
-        System.out.println("inorder");
-        etTre.inOrder(etTre.root);
-       */
-/*
-        for(int i = 0; i < data.length; i++){
-            etTre.insertNode(etTre.root, i);
-        } 
-
-        etTre.traverseAndPrint();
-        
-
-    }
-*/
 }
 }

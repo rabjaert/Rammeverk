@@ -4,9 +4,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
+
 import Interfaces.BinaryTree.IBinaryTree;
 
-public class TestGenericBinary<T> implements IBinaryTree<T>{
+public class TestGenericBinary<T>{
 
     public Node root;
     private Comparator<T> comparator;
@@ -27,6 +29,84 @@ public class TestGenericBinary<T> implements IBinaryTree<T>{
             this.left = null;
             this.right = null;
         }
+        
+
+        /**
+         * @return the left
+         */
+        public Node getLeft() {
+            return left;
+        }
+        /**
+         * @param left the left to set
+         */
+        public void setLeft(Node left) {
+            this.left = left;
+        }
+        /**
+         * @return the right
+         */
+        public Node getRight() {
+            return right;
+        }
+        /**
+         * @param right the right to set
+         */
+        public void setRight(Node right) {
+            this.right = right;
+        }
+
+        /**
+         * @param data the data to set
+         */
+        public void setData(T data) {
+            this.data = data;
+        }
+    }
+
+
+        public Node deleteNode(Node root, T data) {
+ 
+            if(root == null) return root;
+     
+            if(comparator.compare(data, root.data) < 0){
+                root.setLeft(deleteNode(root.getLeft(), data));
+            } 
+            else if(comparator.compare(data, root.data) > 0) {
+                root.setRight(deleteNode(root.getRight(), data));
+            } else {
+                // node with no leaf nodes
+                if(root.getLeft() == null && root.getRight() == null) {
+                    System.out.println("deleting "+data);
+                    return null;
+                } else if(root.getLeft() == null) {
+                    // node with one node (no left node)
+                    System.out.println("deleting "+data);
+                    return root.getRight();
+                } else if(root.getRight() == null) {
+                    // node with one node (no right node)
+                    System.out.println("deleting "+data);
+                    return root.getLeft();
+                } else {
+                    // nodes with two nodes
+                    // search for min number in right sub tree
+                    T minValue = minValue(root.getRight());
+                    root.setData(minValue);
+                    root.setRight(deleteNode(root.getRight(), minValue));
+                    System.out.println("deleting "+data);
+                }
+            }
+     
+            return root;
+    }
+
+
+    private T minValue(Node node) {
+ 
+        if(node.getLeft() != null) {
+            return minValue(node.getLeft());
+        }
+        return node.data;
     }
 
     public Node insertNode(Node node, T data){
@@ -85,20 +165,15 @@ public class TestGenericBinary<T> implements IBinaryTree<T>{
         }
     }
 
-    @Override
-    public void add(T element) {
-        // TODO Auto-generated method stub
+   
+    public boolean contains(Node root, T data)  {
+        // Searches for value x in binary tree rooted at root
+        
+        if (root == null)
+            return false;
+        if (root.data == data)
+            return true;
+        return (contains(root.left, data) || contains(root.right, data));
+        }
 
-    }
-
-    @Override
-    public boolean contains(T element) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-	public void remove(T element) {
-		// TODO Auto-generated method stub
-		
-	}}
+}
