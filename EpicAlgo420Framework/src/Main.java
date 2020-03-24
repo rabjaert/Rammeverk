@@ -25,7 +25,7 @@ public class Main {
         Actor person1 = new Actor("Roger", "Knutsen", 20);
         Actor person2 = new Actor("Robert", "Lundeby", 32);
         Actor person3 = new Actor("Robert", "Lundeby", 31);
-        Actor person4 = new Actor("Snoop","Dog",40);
+        Actor person4 = new Actor("Snoop","Dog", 40);
         Actor person5 = new Actor("Zelda", "Hambeg", 20);
         Actor person6 = new Actor("Niklas", "Berby", 31);
         Actor person7 = new Actor("Satan","Satansen", 69);
@@ -40,6 +40,7 @@ public class Main {
 
         Comparator<Actor> compareFornavn = Comparator.comparing( Actor::getFornavn );
         Comparator<Actor> compareFornavnOgAlder = compareFornavn.thenComparingInt(Actor::getAlder);
+        Comparator<Integer> compareint = Comparator.comparing(Integer::intValue);
 
 
         Comparator<Actor> byAge = (Actor o1, Actor o2) ->o1.getAlder() - o2.getAlder();
@@ -49,7 +50,7 @@ public class Main {
         Comparator<Actor> byFirstName = 
         (Actor o1, Actor o2)->o1.getFornavn().compareTo(o2.getFornavn());
         
-
+        
         
         TestGenericBinary<Actor> ttt = new TestGenericBinary<>(byFirstName);
 
