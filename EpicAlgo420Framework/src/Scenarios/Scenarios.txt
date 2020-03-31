@@ -1,0 +1,64 @@
+Ideer:
+JSON greier?
+Streams
+Directed acyclic graph 
+topologisk sortering.
+
+
+//Scenario 1
+Forklaring:
+Lage et binærtre, sette inn data
+
+Eksempelkode:
+public class Main{
+    Basic variables
+    int x;
+    int [] arr;
+    ArrayList<Integer> arrList = new ArrayList<Integer>();
+    
+    Comparator<Integer> compareInt = Comparator.comparing(Integer::intValue);
+
+    BinaryTree<Integer> binaryInt = new BinaryTree<>(compareInt)
+
+    binaryInt.insertItem(x);
+    binaryInt.insertItemArray(arr);
+    binaryInt.insertItemList(arrList);
+
+    Objects
+    Actor x = new Actor(fornavn,alder);
+    Actor [] arr;
+    ArrayList<Actor> arrList = new ArrayList<Actor>();
+
+    Comparator<Actor> compareFornavn = Comparator.comparing( Actor::getFornavn );
+    Comparator<Actor> compareFornavnOgAlder = compareFornavn.thenComparingInt(Actor::getAlder);
+    
+    BinaryTree<Actor> binaryActor = new BinaryTree<>(compareFornavnOgAlder);
+
+    binaryActor.insertItem(x);
+    binaryActor.insertItemArray(arr);
+    binaryActor.insertItemList(arrList);
+
+}
+
+//Scenario 2
+Forklaring: Hente ut data fra BinaryTree og vise det i et gui component, og konvertere det til et hashmap. 
+Eksempelkode:
+public class Main{
+
+ArrayList<Integer> arr = new ArrayList<Integer>();
+    
+    Comparator<Integer> compareInt = Comparator.comparing(Integer::intValue);
+    BinaryTree<Integer> binaryInt = new BinaryTree<>(compareInt);
+    binaryInt.insertItemArray(arr);
+
+    var getData = binaryInt.getData();
+
+
+    ListView mybox = new ListView(); 
+        mybox.Items.Add(getData)
+    
+    
+}
+
+//Scenario 3
+

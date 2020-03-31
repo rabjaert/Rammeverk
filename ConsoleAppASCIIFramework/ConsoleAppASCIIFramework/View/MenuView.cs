@@ -1,7 +1,7 @@
 ﻿
 namespace ConsoleAppASCIIFramework.View
 {
-    abstract class Menu : View
+    abstract class MenuView : View
     {
         /*
          *
@@ -14,7 +14,7 @@ namespace ConsoleAppASCIIFramework.View
     }
 
 
-    class NagivationMenu : Menu
+    class NagivationMenu : MenuView
     {
        public NagivationMenu(int posX, int posY, Window window)
         {
