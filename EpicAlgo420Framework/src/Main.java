@@ -37,6 +37,7 @@ public class Main {
                 return e1.getFornavn().compareTo(e2.getFornavn());
             }
         };
+        //
 
         Comparator<Actor> compareFornavn = Comparator.comparing( Actor::getFornavn );
         Comparator<Actor> compareFornavnOgAlder = compareFornavn.thenComparingInt(Actor::getAlder);
