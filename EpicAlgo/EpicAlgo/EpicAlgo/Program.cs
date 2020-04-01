@@ -1,6 +1,7 @@
 ﻿using EpicAlgo.Models;
 using EpicAlgo.Trees.BinaryTree;
 using System;
+using EpicAlgo.HashTables;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -29,7 +30,9 @@ namespace EpicAlgo
         BinaryTree<Actor> actorTre = new BinaryTree<Actor>(pizza);
 
 
+            var tt = new HashTable<int, Actor>();
 
+            tt.Add(1, person1);
 
             //TestGenericBinary<Actor> acaaatorTre = new TestGenericBinary<>(byFirstName);
 
@@ -52,6 +55,22 @@ namespace EpicAlgo
 
 
         actorTre.inOrder(actorTre.root);
+
+            HashTable<int, string> table = new HashTable<int, string>();
+            table.Add(1, "one");
+            table.Add(11, "eleven");
+            table.Add(2, "two");
+            table.Add(3, "three");
+            table.Add(23, "twenty-three");
+            foreach (var element in table)
+            {
+                Console.WriteLine(element.Key + "   " + element.Value);
+            }
+            table.Remove(23);
+            foreach (var element in table)
+            {
+                Console.WriteLine(element.Key + "   " + element.Value);
+            }
         }
     }
 }
