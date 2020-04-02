@@ -56,17 +56,21 @@ namespace EpicAlgo
 
         actorTre.inOrder(actorTre.root);
 
-            HashTable<int, string> table = new HashTable<int, string>();
-            table.Add(1, "one");
-            table.Add(11, "eleven");
-            table.Add(2, "two");
-            table.Add(3, "three");
-            table.Add(23, "twenty-three");
+
+            HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
+            table.Add(1, person1);
+            table.Add(2, person2);
+            table.Add(3, person3);
+            table.Add(4, person4);
+            table.Add(5, person5);
             foreach (var element in table)
             {
                 Console.WriteLine(element.Key + "   " + element.Value);
             }
-            table.Remove(23);
+
+
+
+            table.Remove(5);
             foreach (var element in table)
             {
                 Console.WriteLine(element.Key + "   " + element.Value);
