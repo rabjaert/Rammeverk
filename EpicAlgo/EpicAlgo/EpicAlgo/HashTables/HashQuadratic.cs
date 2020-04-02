@@ -6,13 +6,14 @@ using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.HashTables
 {
-    public class HashTable<K, T> : IEnumerable<KeyValuePair<K, T>>
+    sealed class HashQuadratic<K,T> : IHashTable<K,T>
     {
+
         private KeyValuePair<K, T>[] table;
         private double loadFactor { get { if (Count == 0) return 0; else return table.Length / Count; } }
         public int Count { private set; get; }
-        public HashTable()
-        {
+
+        public HashQuadratic(){
             table = new KeyValuePair<K, T>[16];
             Count = 0;
         }
@@ -38,25 +39,6 @@ namespace EpicAlgo.HashTables
             }
         }
 
-        private void ResizeIfRequires()
-        {
-            if (loadFactor < 0.75)
-            {
-                return;
-            }
-            KeyValuePair<K, T>[] newTable = new KeyValuePair<K, T>[table.Length * 2];
-            for (int i = 0; i < table.Length; i++)
-            {
-                newTable[i] = table[i];
-            }
-            table = newTable;
-        }
-
-        private int GetIndex(K key, int attempt)
-        {
-            return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % table.Length));
-        }
-
         public void Add(K key, T value)
         {
             ResizeIfRequires();
@@ -73,6 +55,26 @@ namespace EpicAlgo.HashTables
                 }
                 attempt++;
             }
+        }
+
+        public void Clear()
+        {
+            table = new KeyValuePair<K, T>[16];
+            Count = 0;
+        }
+
+        public bool Contains(K key)
+        {
+            int attempt = 0;
+            while (attempt <= Count)
+            {
+                if (table[GetIndex(key, attempt)].Key.Equals(key))
+                {
+                    return true;
+                }
+                attempt++;
+            }
+            return false;
         }
 
         public int FindIndexOfKey(K key)
@@ -93,18 +95,14 @@ namespace EpicAlgo.HashTables
             return default(Int32);
         }
 
-        public bool Contains(K key)
+        public IEnumerator<KeyValuePair<K, T>> GetEnumerator()
         {
-            int attempt = 0;
-            while (attempt <= Count)
-            {
-                if (table[GetIndex(key, attempt)].Key.Equals(key))
-                {
-                    return true;
-                }
-                attempt++;
-            }
-            return false;
+            throw new NotImplementedException();
+        }
+
+        public int GetIndex(K key, int attempt)
+        {
+            return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % table.Length));
         }
 
         public void Remove(K key)
@@ -118,29 +116,23 @@ namespace EpicAlgo.HashTables
             Count--;
         }
 
-        public void Clear()
+        public void ResizeIfRequires()
         {
-            table = new KeyValuePair<K, T>[16];
-            Count = 0;
-        }
-
-        public IEnumerator<KeyValuePair<K, T>> GetEnumerator()
-        {
-            foreach (var entry in table)
+            if (loadFactor < 0.75)
             {
-                if (!entry.Equals(default(KeyValuePair<K, T>)))
-                {
-                    yield return entry;
-                }
+                return;
             }
+            KeyValuePair<K, T>[] newTable = new KeyValuePair<K, T>[table.Length * 2];
+            for (int i = 0; i < table.Length; i++)
+            {
+                newTable[i] = table[i];
+            }
+            table = newTable;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            //throw new NotImplementedException();
-            return ((IEnumerable<KeyValuePair<K, T>>)this).GetEnumerator();
-
+            throw new NotImplementedException();
         }
     }
 }
-

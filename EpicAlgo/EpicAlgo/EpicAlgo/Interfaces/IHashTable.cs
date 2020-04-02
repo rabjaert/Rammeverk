@@ -8,12 +8,11 @@ namespace EpicAlgo.Interfaces
     {
         //nice
         void ResizeIfRequires();
-
-        int GetIndex();
-        void Add();
-        int FindIndexOfKey();
-        bool Contains();
-        void Remove();
+        int GetIndex(Key key, int attempt);
+        void Add(Key key, Type value);
+        int FindIndexOfKey(Key key);
+        bool Contains(Key key);
+        void Remove(Key key);
         void Clear();
 
     }
