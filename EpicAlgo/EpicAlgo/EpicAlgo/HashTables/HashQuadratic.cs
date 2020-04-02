@@ -97,7 +97,13 @@ namespace EpicAlgo.HashTables
 
         public IEnumerator<KeyValuePair<K, T>> GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (var entry in table)
+            {
+                if (!entry.Equals(default(KeyValuePair<K, T>)))
+                {
+                    yield return entry;
+                }
+            }
         }
 
         public int GetIndex(K key, int attempt)
@@ -132,7 +138,7 @@ namespace EpicAlgo.HashTables
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return ((IEnumerable<KeyValuePair<K, T>>)this).GetEnumerator();
         }
     }
 }
