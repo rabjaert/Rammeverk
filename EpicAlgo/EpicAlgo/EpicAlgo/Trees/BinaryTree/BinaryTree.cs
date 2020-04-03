@@ -1,163 +1,73 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
+using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    public class BinaryTree<T>
+    class BinaryTree<T> : IBinaryTree<T>
     {
 
-        public Node<T> root;
-        private Comparer<T> comparator;
+        public BinaryNode<T> Root;
+        private Comparer<T> Comparer;
 
-        public BinaryTree(Comparer<T> comparator)
+        public BinaryTree(Comparer<T> comparer)
         {
-            this.root = null;
-            this.comparator = comparator;
+            this.Root = null;
+            this.Comparer = comparer;
 
         }
 
-        public Node<T> deleteNode(Node<T> root, T data)
+
+
+        public void AddData(T data)
         {
-            
-            if (root == null) return root;
-
-            if (comparator.Compare(data, root.data) < 0)
-            {
-                root.setLeft(deleteNode(root.getLeft(), data));
-            }
-            else if (comparator.Compare(data, root.data) > 0)
-            {
-                root.setRight(deleteNode(root.getRight(), data));
-            }
-            else
-            {
-                // node with no leaf nodes
-                if (root.getLeft() == null && root.getRight() == null)
-                {
-                    Console.WriteLine("deleting " + data);
-                    return null;
-                }
-                else if (root.getLeft() == null)
-                {
-                    // node with one node (no left node)
-                    Console.WriteLine("deleting " + data);
-                    return root.getRight();
-                }
-                else if (root.getRight() == null)
-                {
-                    // node with one node (no right node)
-                    Console.WriteLine("deleting " + data);
-                    return root.getLeft();
-                }
-                else
-                {
-                    // nodes with two nodes
-                    // search for min number in right sub tree
-                    T minValues = minValue(root.getRight());
-                    root.setData(minValues);
-                    root.setRight(deleteNode(root.getRight(), minValues));
-                    Console.WriteLine("deleting " + data);
-                }
-            }
-
-            return root;
+            throw new NotImplementedException();
         }
 
-
-        private T minValue(Node<T> node)
+        public void AddDataArray(T[] data)
         {
-
-            if (node.getLeft() != null)
-            {
-                return minValue(node.getLeft());
-            }
-            return node.data;
+            throw new NotImplementedException();
         }
 
-        public Node<T> insertNode(Node<T> node, T data)
+        public void AddDataList(List<T> data)
         {
-
-            if (node == null)
-            {
-                node = new Node<T>(data);
-            }
-
-
-            else if (comparator != null && comparator.Compare(data, node.data) < 0)
-            {
-                node.left = insertNode(node.left, data);
-            }
-            else
-            {
-                node.right = insertNode(node.right, data);
-            }
-
-            return node;
-        }
-        public void insertItem(T word)
-        {
-            root = insertNode(root, word);
+            throw new NotImplementedException();
         }
 
-        public void insertItemArray(T[] word)
+        public bool Contains(IBinaryNode<T> root, T data)
         {
-            for (var i = 0; i < word.Length; i++)
-            {
-                insertItem(word[i]);
-            }
+            throw new NotImplementedException();
         }
 
-        public void insertItemList(List<T> data)
+        public IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data)
         {
-            for (var i = 0; i < data.Count; i++)
-            {
-                insertItem(data[i]);
-            }
+            throw new NotImplementedException();
         }
 
-
-        public void inOrder(Node<T> root)
+        public IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data)
         {
-            if (root != null)
-            {
-                inOrder(root.left);
-                Console.WriteLine(root.data.ToString() + " \n");
-                inOrder(root.right);
-            }
+            throw new NotImplementedException();
         }
 
-        public void preOrder(Node<T> root)
+        public T MinValue(IBinaryNode<T> root)
         {
-            if (root != null)
-            {
-                Console.WriteLine(root.data.ToString() + " \n");
-                preOrder(root.left);
-                preOrder(root.right);
-            }
+            throw new NotImplementedException();
         }
 
-        public void postOrder(Node<T> root)
+        public void PrintInOrder(IBinaryNode<T> root)
         {
-            if (root != null)
-            {
-                postOrder(root.left);
-                postOrder(root.right);
-               Console.WriteLine(root.data.ToString() + " \n");
-            }
+            throw new NotImplementedException();
         }
 
-
-        public Boolean contains(Node<T> root, T data)
+        public void PrintPostOrder(IBinaryNode<T> root)
         {
-            // Searches for value x in binary tree rooted at root
-
-            if (root == null)
-                return false;
-            if (root.data.Equals(data))
-                return true;
-            return (contains(root.left, data) || contains(root.right, data));
+            throw new NotImplementedException();
         }
 
+        public void PrintPreOrder(IBinaryNode<T> root)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

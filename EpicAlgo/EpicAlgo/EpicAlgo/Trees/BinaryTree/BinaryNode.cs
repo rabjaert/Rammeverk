@@ -7,24 +7,24 @@ namespace EpicAlgo.Trees.BinaryTree
 {
     sealed class BinaryNode<T> : IBinaryNode<T>
     {
-        private T data;
-        private BinaryNode<T> left, right;
+        private T Data;
+        private BinaryNode<T> Left, Right;
 
         public BinaryNode(T data)
         {
-            this.data = data;
-            left = null;
-            right = null;
+            this.Data = data;
+            Left = null;
+            Right = null;
         }
 
         public T GetData()
         {
-            return data;
+            return Data;
         }
 
         public IBinaryNode<T> GetLeftNode()
         {
-            return left;
+            return (BinaryNode<T>)Left;
         }
 
         public int GetNumberOfNodes()
@@ -34,7 +34,7 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public IBinaryNode<T> GetRightNode()
         {
-            return right;
+            return (BinaryNode<T>)Right;
         }
 
         public bool HasLeftNode()
@@ -49,17 +49,17 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public void SetData(T data)
         {
-            this.data = data;
+            this.Data = data;
         }
 
         public void SetLeftNode(IBinaryNode<T> left)
         {
-            this.left = (BinaryNode<T>)left;
+            this.Left = (BinaryNode<T>)left;
         }
 
         public void SetRightNode(IBinaryNode<T> right)
         {
-            this.right = (BinaryNode<T>)right;
+            this.Right = (BinaryNode<T>)right;
         }
     }
 }

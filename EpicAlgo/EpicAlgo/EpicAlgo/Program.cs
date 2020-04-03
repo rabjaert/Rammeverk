@@ -27,7 +27,7 @@ namespace EpicAlgo
             var pizza = Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn));
 
         //BinaryTree<Actor> actorTre = new BinaryTree<Actor>(Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn)));
-        BinaryTree<Actor> actorTre = new BinaryTree<Actor>(pizza);
+        BinaryTreeOld<Actor> actorTre = new BinaryTreeOld<Actor>(pizza);
 
 
             var tt = new HashTable<int, Actor>();

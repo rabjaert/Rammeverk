@@ -1,23 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace EpicAlgo.Interfaces
 {
     public interface IBinaryTree<T>
     {
+        public IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data);
 
-        public IBinaryNode<T> DeleteNode(IBinaryNode<T> root, T data);
-
-        public T MinValue(IBinaryNode<T> node);
+        public T MinValue(IBinaryNode<T> root);
 
         public IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data);
+        
+        public void AddData(T data);
 
-        public void InsertItem(T word);
+        public void AddDataArray(T[] data);
 
-        public void InsertItemIntoArray(T[] word);
-
-        public void InsertItemIntoList(List<T> data);
+        public void AddDataList(List<T> data);
 
         public Boolean Contains(IBinaryNode<T> root, T data);
 
@@ -26,9 +25,6 @@ namespace EpicAlgo.Interfaces
         public void PrintPreOrder(IBinaryNode<T> root);
 
         public void PrintPostOrder(IBinaryNode<T> root);
-
-
-
 
         }
 }
