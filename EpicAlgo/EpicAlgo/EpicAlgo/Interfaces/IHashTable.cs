@@ -4,15 +4,15 @@ using System.Text;
 
 namespace EpicAlgo.Interfaces
 {
-    interface IHashTable<Key, Type> : IEnumerable<KeyValuePair<Key, Type>>
+    interface IHashTable<K, T> : IEnumerable<KeyValuePair<K, T>>
     {
         //nice
         void ResizeIfRequires();
-        int GetIndex(Key key, int attempt);
-        void Add(Key key, Type value);
-        int FindIndexOfKey(Key key);
-        bool Contains(Key key);
-        void Remove(Key key);
+        int GetIndex(K key, int attempt);
+        void Add(K key, T value);
+        int FindIndexOfKey(K key);
+        bool Contains(K key);
+        void Remove(K key);
         void Clear();
 
     }
