@@ -36,9 +36,9 @@ namespace EpicAlgo
             // Comparer<Actor>.Create((x, y) => -x.Fornavn.CompareTo(y.Fornavn));
             var pizza = Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn));
 
+            //BinaryTree Example
             BinaryTree<Actor> testTre = new BinaryTree<Actor>(pizza);
             testTre.AddDataList(ikkeAvføring);
-
             testTre.PrintInOrder(testTre.GetRoot());
 
             //HashQuadratic Example

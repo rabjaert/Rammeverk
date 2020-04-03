@@ -12,7 +12,7 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public BinaryNode(T data)
         {
-            this.Data = data;
+            Data = data;
             Left = null;
             Right = null;
         }
@@ -34,7 +34,7 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public IBinaryNode<T> GetRightNode()
         {
-            return (BinaryNode<T>)Right;
+            return Right;
         }
 
         public bool HasLeftNode()
