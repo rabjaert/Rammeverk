@@ -24,7 +24,7 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public IBinaryNode<T> GetLeftNode()
         {
-            return (BinaryNode<T>)Left;
+            return Left;
         }
 
         public int GetNumberOfNodes()
