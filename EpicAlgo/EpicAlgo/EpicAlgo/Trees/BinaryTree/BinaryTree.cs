@@ -113,7 +113,8 @@ namespace EpicAlgo.Trees.BinaryTree
                 node = new BinaryNode<T>(data);
             }
 
-            
+          
+
             else if (Comparer != null && Comparer.Compare(data, node.GetData()) < 0)
             {
 
@@ -161,9 +162,9 @@ namespace EpicAlgo.Trees.BinaryTree
             var watch = System.Diagnostics.Stopwatch.StartNew();
             foreach (var item in list)
             {
-                this.AddData(item);
+                AddData(item);
             }
-            Console.WriteLine(watch.ElapsedMilliseconds);
+            Console.WriteLine("Sekunder:" + watch.ElapsedMilliseconds / 1000 + "\nMillisekunder:" + watch.ElapsedMilliseconds);
 
 
         }

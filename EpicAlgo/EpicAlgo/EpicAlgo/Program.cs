@@ -12,7 +12,7 @@ namespace EpicAlgo
     {
         static void Main(string[] args)
         {
-
+            /*
             //Actor Objects
             Actor person1 = new Actor("Roger", "Knutsen", 20);
             Actor person2 = new Actor("Robert", "Lundeby", 32);
@@ -42,27 +42,35 @@ namespace EpicAlgo
             testTre.AddDataList(ikkeAvføring);
             
             testTre.PrintInOrder(testTre.GetRoot());
+            */
+            //var pizza = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
 
-            var intComparer = Comparer<int>.Create((x, y) => -y.CompareTo(x));
-
-            BinaryTree<int> intTre = new BinaryTree<int>(intComparer);
-            List<int> intList = new List<int>();
-            for (int i = 0; i < 10000; i++)
+            Console.WriteLine("");
+            var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
+           
+            BinaryTree<Double> intTre = new BinaryTree<Double>(intComparer);
+           
+            List<Double> intList = new List<Double>();
+            Random ran = new Random();
+            for (int i = 0; i < 50000; i++)
             {
-                intList.Add(i);
+              
+                intList.Add(ran.NextDouble());
             }
-
+            intTre.AddDataList(intList);
+            intTre.PrintInOrder(intTre.GetRoot());
             Console.WriteLine("Test av timer:");
             intTre.TakeTime(intList);
 
-            
+
             //*****************************************//
-            
-            
+
+
             //HashQuadratic Example
 
 
             //*****************************************//
+            /*
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);
@@ -79,7 +87,7 @@ namespace EpicAlgo
                 Console.WriteLine(element.Key + "   " + element.Value);
             }
 
-            
+            */
         }
     }
 }
