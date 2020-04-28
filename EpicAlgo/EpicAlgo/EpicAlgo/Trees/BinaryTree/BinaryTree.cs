@@ -5,7 +5,7 @@ using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    class BinaryTree<T> : IBinaryTree<T>
+    class BinaryTree<T> : IBinaryTree<T>, ICompareTImer<T>
     {
 
         private IBinaryNode<T> Root;
@@ -154,6 +154,18 @@ namespace EpicAlgo.Trees.BinaryTree
         public void PrintPreOrder(IBinaryNode<T> root)
         {
             throw new NotImplementedException();
+        }
+
+        public void TakeTime(List<T> list)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            foreach (var item in list)
+            {
+                this.AddData(item);
+            }
+            Console.WriteLine(watch.ElapsedMilliseconds);
+
+
         }
     }
 }

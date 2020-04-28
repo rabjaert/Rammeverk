@@ -4,6 +4,7 @@ using System;
 using EpicAlgo.HashTables;
 using System.Collections;
 using System.Collections.Generic;
+using EpicAlgo.Timers;
 
 namespace EpicAlgo
 {
@@ -39,9 +40,29 @@ namespace EpicAlgo
             //BinaryTree Example
             BinaryTree<Actor> testTre = new BinaryTree<Actor>(pizza);
             testTre.AddDataList(ikkeAvføring);
+            
             testTre.PrintInOrder(testTre.GetRoot());
 
+            var intComparer = Comparer<int>.Create((x, y) => -y.CompareTo(x));
+
+            BinaryTree<int> intTre = new BinaryTree<int>(intComparer);
+            List<int> intList = new List<int>();
+            for (int i = 0; i < 10000; i++)
+            {
+                intList.Add(i);
+            }
+
+            Console.WriteLine("Test av timer:");
+            intTre.TakeTime(intList);
+
+            
+            //*****************************************//
+            
+            
             //HashQuadratic Example
+
+
+            //*****************************************//
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);

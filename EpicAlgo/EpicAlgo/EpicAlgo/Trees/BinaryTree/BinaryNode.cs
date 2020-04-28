@@ -8,7 +8,7 @@ namespace EpicAlgo.Trees.BinaryTree
     sealed class BinaryNode<T> : IBinaryNode<T>
     {
         private T Data;
-        private BinaryNode<T> Left, Right;
+        private IBinaryNode<T> Left, Right;
 
         public BinaryNode(T data)
         {
@@ -54,12 +54,12 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public void SetLeftNode(IBinaryNode<T> left)
         {
-            this.Left = (BinaryNode<T>)left;
+            this.Left = left;
         }
 
         public void SetRightNode(IBinaryNode<T> right)
         {
-            this.Right = (BinaryNode<T>)right;
+            this.Right = right;
         }
     }
 }
