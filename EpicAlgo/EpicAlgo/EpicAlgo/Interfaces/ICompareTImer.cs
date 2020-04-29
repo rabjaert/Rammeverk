@@ -4,9 +4,12 @@ using System.Text;
 
 namespace EpicAlgo.Interfaces
 {
-    public interface ICompareTImer<T>
+    public interface ICompareTimer<T>
     {
-        void TakeTime(List<T> list);
-
+        void TakeTime();
+        void ListTime(List<T> list);
+        void InsertTime(T item);
+        void ReadTime(T item);
+        void DeleteTime(T item);
     }
 }

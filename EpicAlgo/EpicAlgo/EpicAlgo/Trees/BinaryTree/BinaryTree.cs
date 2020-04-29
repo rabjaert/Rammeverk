@@ -5,7 +5,7 @@ using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    class BinaryTree<T> : IBinaryTree<T>, ICompareTImer<T>
+    class BinaryTree<T> : IBinaryTree<T>, ICompareTimer<T>
     {
 
         private IBinaryNode<T> Root;
@@ -164,6 +164,7 @@ namespace EpicAlgo.Trees.BinaryTree
             {
                 AddData(item);
             }
+            watch.Stop();
             Console.WriteLine("Sekunder:" + watch.ElapsedMilliseconds / 1000 + "\nMillisekunder:" + watch.ElapsedMilliseconds);
 
 
