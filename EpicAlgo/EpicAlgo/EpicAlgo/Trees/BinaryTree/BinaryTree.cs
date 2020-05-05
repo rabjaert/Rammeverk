@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    class BinaryTree<T> : IBinaryTree<T>, ICompareTimer<T>
+    class BinaryTree<T> : IBinaryTree<T>
     {
 
         private IBinaryNode<T> Root;
@@ -169,5 +170,18 @@ namespace EpicAlgo.Trees.BinaryTree
 
 
         }
+
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }

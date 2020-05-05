@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EpicAlgo.Interfaces
 {
-    public interface ITree<T>
+    public interface ITree<T> : IEnumerable<T>
     {
         public void AddData(T data);
 

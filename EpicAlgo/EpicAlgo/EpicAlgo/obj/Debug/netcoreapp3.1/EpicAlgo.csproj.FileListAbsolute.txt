@@ -4,7 +4,6 @@ C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\n
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.runtimeconfig.dev.json
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.dll
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.pdb
-C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.csprojAssemblyReference.cache
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.AssemblyInfoInputs.cache
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.AssemblyInfo.cs
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.dll

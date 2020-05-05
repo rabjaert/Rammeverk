@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EpicAlgo.Interfaces
 {
-    interface IHashTable<K, T> : IEnumerable<KeyValuePair<K, T>>
+    public interface IHashTable<K, T> : IEnumerable<KeyValuePair<K, T>>
     {
         //nice
         void ResizeIfRequires();

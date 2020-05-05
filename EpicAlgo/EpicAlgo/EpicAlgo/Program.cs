@@ -5,6 +5,8 @@ using EpicAlgo.HashTables;
 using System.Collections;
 using System.Collections.Generic;
 using EpicAlgo.Timers;
+using EpicAlgo.Timer;
+using EpicAlgo.Interfaces;
 
 namespace EpicAlgo
 {
@@ -12,6 +14,10 @@ namespace EpicAlgo
     {
         static void Main(string[] args)
         {
+
+
+
+
             /*
             //Actor Objects
             Actor person1 = new Actor("Roger", "Knutsen", 20);
@@ -45,11 +51,41 @@ namespace EpicAlgo
             */
             //var pizza = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
 
+
+
             Console.WriteLine("");
             var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
-           
+
+
+            HashQuadratic<int, Double> hashtable = new HashQuadratic<int, Double>();
+            HashQuadratic<int, Double> hashtable1 = new HashQuadratic<int, Double>();
+
             BinaryTree<Double> intTre = new BinaryTree<Double>(intComparer);
-           
+            BinaryTree<Double> intTre1 = new BinaryTree<Double>(intComparer);
+
+
+
+            List<ITree<Double>> myList = new List<ITree<Double>>();
+
+            myList.Add(intTre);
+            myList.Add(intTre1);
+
+            List<IHashTable<int, Double>> hashlist = new List<IHashTable<int, Double>>();
+
+            hashlist.Add(hashtable);
+            hashlist.Add(hashtable1);
+
+
+            Tester<int, Double> test = new Tester<int, Double>(myList, hashlist);
+
+            double d = 2.1;
+            test.Add(d);
+            Console.WriteLine();
+
+            test.print();
+
+            /*
+
             List<Double> intList = new List<Double>();
             Random ran = new Random();
             for (int i = 0; i < 50000; i++)
@@ -61,9 +97,10 @@ namespace EpicAlgo
             intTre.PrintInOrder(intTre.GetRoot());
             Console.WriteLine("Test av timer:");
             intTre.TakeTime(intList);
+            /*
 
 
-            //*****************************************//
+            //*****************************************/
 
 
             //HashQuadratic Example

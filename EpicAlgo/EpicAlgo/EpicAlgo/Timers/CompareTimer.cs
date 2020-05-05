@@ -12,9 +12,7 @@ namespace EpicAlgo.Timers
     {
         private Stopwatch stopWatch = new Stopwatch();
 
-        public CompareTimer()
-        {
-        }
+
 
         public void TestTimer(List<T> list, Action method )
         {
