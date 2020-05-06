@@ -6,7 +6,7 @@ using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    class BinaryTree<T> : IBinaryTree<T>
+    public class BinaryTree<T>
     {
 
         private IBinaryNode<T> Root;
@@ -19,22 +19,22 @@ namespace EpicAlgo.Trees.BinaryTree
 
         }
 
-        public void SetRoot(IBinaryNode<T> root)
-        {
-            Root = root;
-        }
+        //*******************************************************************************\\
+        //                                                                                \\
+        //         PUBLIC METHODS THAT THE USER WILL INTERACT WITH                        \\
+        //                                                                                \\
+        //********************************************************************************\\ 
 
-        public IBinaryNode<T> GetRoot()
-        {
-            return Root;
-        }
 
-        public void AddData(T data)
+
+        //Adds an item to the binary tree
+        public void Add(T data)
         {
             SetRoot(InsertNode(Root, data));
         }
 
-        public void AddDataArray(T[] data)
+        //Adds the content of the array to the BinaryTree
+        public void AddArray(T[] data)
         {
             for (var i = 0; i < data.Length; i++)
             {
@@ -42,7 +42,8 @@ namespace EpicAlgo.Trees.BinaryTree
             }
         }
 
-        public void AddDataList(List<T> data)
+        //Adds the content of the list to the BinaryTree
+        public void AddList(List<T> data)
         {
             for (var i = 0; i < data.Count; i++)
             {
@@ -50,16 +51,88 @@ namespace EpicAlgo.Trees.BinaryTree
             }
         }
 
-        public bool Contains(IBinaryNode<T> root, T data)
+       //Removes an element from the binary tree
+        public bool Remove(T data)
+        {
+            if (DeleteNode(Root, data).GetData().Equals(data))
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        //Prints the binary tree
+        public void Print()
+        {
+            PrintInOrder(Root);
+        }
+
+       //Clears the content of the binary tree
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
+        //Counting number of nodes
+        public int Count => throw new NotImplementedException();
+
+        //Checks for an item in the binary tree
+        public bool Contains(T item)
+        {
+            return RContains(Root, item);
+        }
+
+        //Not implemented, but should be public
+        private void CopyTo(T[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        //Gets the minimum value in the binary tree
+        private T MinValue(IBinaryNode<T> root)
+        {
+            if (root.GetLeftNode() != null)
+            {
+                return MinValue(root.GetLeftNode());
+            }
+            return root.GetData();
+        }
+
+
+        //*******************************************************************************\\
+        //                                                                                \\
+        //         PRIVATE METHODS THAT USER IS NOT GOING TO USE                          \\
+        //                                                                                \\
+        //********************************************************************************\\        
+
+
+        private void AddData(T data)
+        {
+            SetRoot(InsertNode(Root, data));
+        }
+
+        private void SetRoot(IBinaryNode<T> root)
+        {
+            Root = root;
+        }
+
+        private IBinaryNode<T> GetRoot()
+        {
+            return Root;
+        }
+
+        private bool IsReadOnly => throw new NotImplementedException();
+
+        private bool RContains(IBinaryNode<T> root, T data)
         {
             if (root == null)
                 return false;
             if (root.GetData().Equals(data))
                 return true;
-            return (Contains(root.GetLeftNode(), data) || Contains(root.GetRightNode(), data));
+            return (RContains(root.GetLeftNode(), data) || RContains(root.GetRightNode(), data));
         }
 
-        public IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data)
+        private IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data)
         {
             if (node == null) return node;
 
@@ -105,7 +178,7 @@ namespace EpicAlgo.Trees.BinaryTree
             return node;
         }
 
-        public IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data)
+        private IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data)
         {
             
 
@@ -129,16 +202,7 @@ namespace EpicAlgo.Trees.BinaryTree
             return node;
         }
 
-        public T MinValue(IBinaryNode<T> root)
-        {
-            if (root.GetLeftNode() != null)
-            {
-                return MinValue(root.GetLeftNode());
-            }
-            return root.GetData();
-        }
-
-        public void PrintInOrder(IBinaryNode<T> root)
+        private void PrintInOrder(IBinaryNode<T> root)
         {
             if (root != null)
             {
@@ -148,16 +212,22 @@ namespace EpicAlgo.Trees.BinaryTree
             }
         }
 
-        public void PrintPostOrder(IBinaryNode<T> root)
+        private void PrintPostOrder(IBinaryNode<T> root)
         {
             throw new NotImplementedException();
         }
 
-        public void PrintPreOrder(IBinaryNode<T> root)
+        private void PrintPreOrder(IBinaryNode<T> root)
         {
             throw new NotImplementedException();
         }
 
+        private void PrintInOrder(INode<T> root)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
         public void TakeTime(List<T> list)
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -168,19 +238,9 @@ namespace EpicAlgo.Trees.BinaryTree
             watch.Stop();
             Console.WriteLine("Sekunder:" + watch.ElapsedMilliseconds / 1000 + "\nMillisekunder:" + watch.ElapsedMilliseconds);
 
-
         }
+        */
 
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
 
 
     }

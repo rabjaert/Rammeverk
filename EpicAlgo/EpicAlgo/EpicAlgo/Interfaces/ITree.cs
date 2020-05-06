@@ -4,12 +4,15 @@ using System.Text;
 
 namespace EpicAlgo.Interfaces
 {
-    public interface ITree<T> : IEnumerable<T>
+    public interface ITree<T> : ICollection<T>
     {
-        public void AddData(T data);
+        public void AddArray(T[] data);
 
-        public void AddDataArray(T[] data);
+        public void AddList(List<T> data);
 
-        public void AddDataList(List<T> data);
+        public void PrintInOrder();
+        public void PrintPostOrder();
+        public void PrintPreOrder();
+
     }
 }

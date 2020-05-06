@@ -4,9 +4,9 @@ using System;
 using EpicAlgo.HashTables;
 using System.Collections;
 using System.Collections.Generic;
-using EpicAlgo.Timers;
-using EpicAlgo.Timer;
+
 using EpicAlgo.Interfaces;
+using EpicAlgo.Timer;
 
 namespace EpicAlgo
 {
@@ -18,7 +18,7 @@ namespace EpicAlgo
 
 
 
-            /*
+            
             //Actor Objects
             Actor person1 = new Actor("Roger", "Knutsen", 20);
             Actor person2 = new Actor("Robert", "Lundeby", 32);
@@ -29,6 +29,7 @@ namespace EpicAlgo
             Actor person7 = new Actor("Satan", "Satansen", 69);
             Actor person8 = new Actor("Juda", "Judasen", 40);
 
+            
             //Actor List
             List<Actor> ikkeAvføring = new List<Actor>();
             ikkeAvføring.Add(person1);
@@ -45,13 +46,41 @@ namespace EpicAlgo
 
             //BinaryTree Example
             BinaryTree<Actor> testTre = new BinaryTree<Actor>(pizza);
-            testTre.AddDataList(ikkeAvføring);
-            
-            testTre.PrintInOrder(testTre.GetRoot());
+
+            TestBinaryTree<Actor> testTre1 = new TestBinaryTree<Actor>(pizza);
+
+            HashQuadratic<int, Double> hash = new HashQuadratic<int, double>();
+
+            HashQuadratic<int, Double> hash1 = new HashQuadratic<int, double>();
+
+            HashQuadratic<int, Double> hash2 = new HashQuadratic<int, double>();
+
+            KeyValuePair<int, Double>[] kvpArray = new KeyValuePair<int, double>[50];
+
+            for (int i = 0; i < 50; i++)
+            {
+
+                hash2.Add(i, i / 2);
+            }
+
+            List<IHashTableDict<int, Double>> testa = new List<IHashTableDict<int, double>>();
+
+            testa.Add(hash);
+            testa.Add(hash1);
+            testa.Add(hash2);
+
+            HashTimer<int, Double> hashtimer = new HashTimer<int, double>(testa);
+
+
+
+            /*
+            testTre1.AddList(ikkeAvføring);
+
+            testTre1.PrintInOrder();
             */
             //var pizza = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
 
-
+            /*
 
             Console.WriteLine("");
             var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
@@ -67,24 +96,11 @@ namespace EpicAlgo
 
             List<ITree<Double>> myList = new List<ITree<Double>>();
 
-            myList.Add(intTre);
-            myList.Add(intTre1);
-
-            List<IHashTable<int, Double>> hashlist = new List<IHashTable<int, Double>>();
-
-            hashlist.Add(hashtable);
-            hashlist.Add(hashtable1);
 
 
-            Tester<int, Double> test = new Tester<int, Double>(myList, hashlist);
-
-            double d = 2.1;
-            test.Add(d);
-            Console.WriteLine();
-
-            test.print();
-
-            /*
+            KeyValuePair<int, Actor> t = new KeyValuePair<int, Actor>();
+            
+/*      
 
             List<Double> intList = new List<Double>();
             Random ran = new Random();
@@ -107,6 +123,7 @@ namespace EpicAlgo
 
 
             //*****************************************//
+            
             /*
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
@@ -123,8 +140,8 @@ namespace EpicAlgo
             {
                 Console.WriteLine(element.Key + "   " + element.Value);
             }
-
             */
+            
         }
     }
 }

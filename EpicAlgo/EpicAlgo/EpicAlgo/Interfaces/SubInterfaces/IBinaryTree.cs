@@ -6,19 +6,20 @@ namespace EpicAlgo.Interfaces
 {
     public interface IBinaryTree<T> : ITree<T>
     {
-        public IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data);
 
-        public T MinValue(IBinaryNode<T> root);
+        IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data);
 
-        public IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data);
-        
-        public Boolean Contains(IBinaryNode<T> root, T data);
+        T MinValue(IBinaryNode<T> root);
 
-        public void PrintInOrder(IBinaryNode<T> root);
+        IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data);
 
-        public void PrintPreOrder(IBinaryNode<T> root);
+        Boolean RContains(IBinaryNode<T> root, T data);
 
-        public void PrintPostOrder(IBinaryNode<T> root);
+        void PrintInOrder(IBinaryNode<T> root);
+
+        void PrintPreOrder(IBinaryNode<T> root);
+
+        void PrintPostOrder(IBinaryNode<T> root);
 
         }
 }

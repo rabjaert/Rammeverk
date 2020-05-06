@@ -1,28 +1,36 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.HashTables
 {
-    sealed class HashQuadratic<K,T> : IHashTable<K,T>
+    public class HashQuadratic<K,T> : IHashTableDict<K,T>
     {
+        public HashQuadratic()
+        {
+            table = new KeyValuePair<K, T>[16];
+            Count = 0;
+        }
 
         private KeyValuePair<K, T>[] table;
         private double loadFactor { get { if (Count == 0) return 0; else return table.Length / Count; } }
         public int Count { private set; get; }
 
-        public HashQuadratic(){
-            table = new KeyValuePair<K, T>[16];
-            Count = 0;
-        }
+        public ICollection<K> Keys => (from kvp in table select kvp.Key).Distinct().ToList();
 
-        public T this[K key]
+        public ICollection<T> Values => (from kvp in table select kvp.Value).Distinct().ToList();
+
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        T IDictionary<K, T>.this[K key]
         {
             get
             {
-                if (!Contains(key))
+                if (!ContainsKey(key))
                 {
                     throw new ArgumentOutOfRangeException("There is no such element in the table!");
                 }
@@ -37,7 +45,7 @@ namespace EpicAlgo.HashTables
                 }
                 return default(T);
             }
-        }
+            set => throw new NotImplementedException(); }
 
         public void Add(K key, T value)
         {
@@ -63,23 +71,10 @@ namespace EpicAlgo.HashTables
             Count = 0;
         }
 
-        public bool Contains(K key)
-        {
-            int attempt = 0;
-            while (attempt <= Count)
-            {
-                if (table[GetIndex(key, attempt)].Key.Equals(key))
-                {
-                    return true;
-                }
-                attempt++;
-            }
-            return false;
-        }
 
         public int FindIndexOfKey(K key)
         {
-            if (!Contains(key))
+            if (!ContainsKey(key))
             {
                 throw new ArgumentOutOfRangeException("There is no such element in the table!");
             }
@@ -110,21 +105,11 @@ namespace EpicAlgo.HashTables
         {
             return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % table.Length));
         }
+        
 
-        public void Remove(K key)
+        private void ResizeIfRequires()
         {
-            if (!Contains(key))
-            {
-                throw new ArgumentOutOfRangeException("There is no such element in the table!");
-            }
-            int index = FindIndexOfKey(key);
-            table[index] = default(KeyValuePair<K, T>);
-            Count--;
-        }
-
-        public void ResizeIfRequires()
-        {
-            if (loadFactor < 0.75)
+            if (loadFactor < 0.50)
             {
                 return;
             }
@@ -136,9 +121,81 @@ namespace EpicAlgo.HashTables
             table = newTable;
         }
 
+        public bool ContainsKey(K key)
+        {
+            int attempt = 0;
+            while (attempt <= Count)
+            {
+                if (table[GetIndex(key, attempt)].Key.Equals(key))
+                {
+                    return true;
+                }
+                attempt++;
+            }
+            return false;
+        }
+
+        bool IDictionary<K, T>.Remove(K key)
+        {
+            if (!ContainsKey(key))
+            {
+                throw new ArgumentOutOfRangeException("There is no such element in the table!");
+                return false;
+            }
+            int index = FindIndexOfKey(key);
+            table[index] = default(KeyValuePair<K, T>);
+            Count--;
+            return true;
+        }
+
+        public bool TryGetValue(K key, [MaybeNullWhen(false)] out T value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(KeyValuePair<K, T> item)
+        {
+            var key = item.Key;
+            var value = item.Value;
+            ResizeIfRequires();
+            int attempt = 0;
+            int index;
+            while (true)
+            {
+                index = GetIndex(key, attempt);
+                if (table[index].Equals(default(KeyValuePair<K, T>)))
+                {
+                    table[index] = new KeyValuePair<K, T>(key, value);
+                    Count++;
+                    return;
+                }
+                attempt++;
+            }
+        }
+
+        public bool Contains(KeyValuePair<K, T> item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyTo(KeyValuePair<K, T>[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(KeyValuePair<K, T> item)
+        {
+            throw new NotImplementedException();
+        }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable<KeyValuePair<K, T>>)this).GetEnumerator();
+            throw new NotImplementedException();
         }
+        /*
+IEnumerator IEnumerable.GetEnumerator()
+{
+   return ((IEnumerable<KeyValuePair<K, T>>)this).GetEnumerator();
+}*/
     }
 }
