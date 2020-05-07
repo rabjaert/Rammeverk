@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 using EpicAlgo.Interfaces;
 using EpicAlgo.Timer;
+using EpicAlgo.henriktest;
 
 namespace EpicAlgo
 {
@@ -151,7 +152,7 @@ namespace EpicAlgo
             //*****************************************//
 
             
-            HashQ<int, Actor> table = new HashQ<int, Actor>();
+            HashQtest<int, Actor> table = new HashQtest<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);
             table.Add(3, person3);

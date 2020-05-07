@@ -10,15 +10,15 @@ namespace EpicAlgo.HashTables
     sealed class HashQ<K, T> : IHashTableCollection<K, T>
     {
 
-        private KeyValuePair<K, T>[] table;
-        private double loadFactor { get { if (Count == 0) return 0; else return table.Length / Count; } }
+        private List<KeyValuePair<K, T>> table;
+        private double loadFactor { get { if (Count == 0) return 0; else return table.Count / Count; } }
         public int Count { private set; get; }
 
         public bool IsReadOnly => throw new NotImplementedException();
 
         public HashQ()
         {
-            table = new KeyValuePair<K, T>[16];
+            table = new List<KeyValuePair<K, T>>();
             Count = 0;
         }
 
@@ -92,7 +92,7 @@ namespace EpicAlgo.HashTables
 
         public void Clear()
         {
-            table = new KeyValuePair<K, T>[16];
+            table = new List<KeyValuePair<K, T>>();
             Count = 0;
         }
 
@@ -143,23 +143,23 @@ namespace EpicAlgo.HashTables
             return (IEnumerator)dictionary;
            // return GetEnumerator();
            */
-           /*
-            KeyValuePair<K,T>[] kvpArray = new KeyValuePair<K,T>[table.Length];
+            /*
+             KeyValuePair<K,T>[] kvpArray = new KeyValuePair<K,T>[table.Length];
 
 
-            foreach (KeyValuePair<K, T> p in kvpArray)
-            {
-                yield return p;
-            }
-            */
-            f
-            return table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+             foreach (KeyValuePair<K, T> p in kvpArray)
+             {
+                 yield return p;
+             }
+             */
+            return default;
+            //return table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
         }
 
         public int GetIndex(K key, int attempt)
         {
-            return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % table.Length));
+            return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % table.Count));
         }
 
         public bool Remove(K key)
@@ -180,7 +180,7 @@ namespace EpicAlgo.HashTables
         {
             if (loadFactor < 0.75)
             {
-                table = new KeyValuePair<K, T>[table.Length * 2];
+                table.AddRange(new KeyValuePair<K,T>[table.Count * 2 - table.Count]);
             }
             
 

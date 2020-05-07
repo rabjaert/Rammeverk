@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using EpicAlgo.Interfaces;
 
-namespace EpicAlgo.HashTables
+namespace EpicAlgo.henriktest
 {
-    sealed class HashQ<K, T> : IHashTableCollection<K, T>
+    sealed class HashQtest<K, T> : IHashTableCollectionTest<K, T>
     {
 
         private KeyValuePair<K, T>[] table;
@@ -16,7 +16,7 @@ namespace EpicAlgo.HashTables
 
         public bool IsReadOnly => throw new NotImplementedException();
 
-        public HashQ()
+        public HashQtest()
         {
             table = new KeyValuePair<K, T>[16];
             Count = 0;
@@ -47,7 +47,7 @@ namespace EpicAlgo.HashTables
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+           
 
             return GetEnumerator();
 
@@ -144,10 +144,10 @@ namespace EpicAlgo.HashTables
            // return GetEnumerator();
            */
 
-            KeyValuePair<K,T>[] kvpArray = new KeyValuePair<K,T>[table.Length];
+            
 
 
-            foreach (KeyValuePair<K, T> p in kvpArray)
+            foreach (var p in table)
             {
                 yield return p;
             }
@@ -186,9 +186,12 @@ namespace EpicAlgo.HashTables
         public void Print() {
 
             foreach (var element in this) {
+                if (element.Value != null)
+                {
+                    Console.WriteLine("Key:" + " " + element.Key
+    + "\n" + "Value:" + " " + element.Value + "\n");
+                }
 
-                Console.WriteLine("Key:" + " " + element.Key
-                    + "\n" + "Value:" + " " + element.Value + "\n");
             
             }
         
