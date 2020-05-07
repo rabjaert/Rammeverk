@@ -6,17 +6,17 @@ using System.Text;
 
 namespace EpicAlgo.Timer
 {
-    class HashTimer<K,T> : ITimeComparison<K,T>
+    class HashTimer<K,T> : IHashComparison<K,T>
     {
-        List<IHashTableDict<K, T>> HashTable;
-        Dictionary<IHashTableDict<K, T>, Stopwatch> dict = new Dictionary<IHashTableDict<K, T>, Stopwatch>();
+        List<IHashTableCollection<K, T>> HashTable = new List<IHashTableCollection<K, T>>();
+        Dictionary<IHashTableCollection<K, T>, Stopwatch> dict = new Dictionary<IHashTableCollection<K, T>, Stopwatch>();
 
-        public HashTimer(List<IHashTableDict<K, T>> hashtable)
+        public HashTimer(List<IHashTableCollection<K, T>> hashtable)
         {
             HashTable = hashtable;
         }
 
-        public HashTimer(IHashTableDict<K, T> hashtable)
+        public HashTimer(IHashTableCollection<K, T> hashtable)
         {
             HashTable.Add(hashtable);
         }
@@ -25,15 +25,16 @@ namespace EpicAlgo.Timer
         public void TakeTime(K k, T t)
         {
 
-            foreach (IHashTableDict<K, T> hashtable in HashTable)
+            foreach (IHashTableCollection<K, T> hashtable in HashTable)
             {
-
+                KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                hashtable.Add(k, t);
+                hashtable.Add(kvp);
+                dict.Add(hashtable, stopwatch);
                 stopwatch.Stop();
 
-                dict.Add(hashtable, stopwatch);
+                
                 
             }
 
@@ -42,7 +43,7 @@ namespace EpicAlgo.Timer
         public void TakeTime(KeyValuePair<K,T>[] kvp)
         {
 
-            foreach (IHashTableDict<K, T> hashtable in HashTable)
+            foreach (IHashTableCollection<K, T> hashtable in HashTable)
             {
 
                 Stopwatch stopwatch = new Stopwatch();
@@ -51,9 +52,10 @@ namespace EpicAlgo.Timer
                 {
                     hashtable.Add(item);
                 }
+                dict.Add(hashtable, stopwatch);
                 stopwatch.Stop();
 
-                dict.Add(hashtable, stopwatch);
+                
             }
 
         }

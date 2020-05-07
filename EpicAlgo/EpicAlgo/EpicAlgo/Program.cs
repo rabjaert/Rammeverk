@@ -49,35 +49,37 @@ namespace EpicAlgo
 
             TestBinaryTree<Actor> testTre1 = new TestBinaryTree<Actor>(pizza);
 
-            HashQuadratic<int, Double> hash = new HashQuadratic<int, double>();
-
-            HashQuadratic<int, Double> hash1 = new HashQuadratic<int, double>();
-
-            HashQuadratic<int, Double> hash2 = new HashQuadratic<int, double>();
 
             KeyValuePair<int, Double>[] kvpArray = new KeyValuePair<int, double>[50];
-
-            for (int i = 0; i < 50; i++)
-            {
-
-                hash2.Add(i, i / 2);
-            }
-
-            List<IHashTableDict<int, Double>> testa = new List<IHashTableDict<int, double>>();
-
-            testa.Add(hash);
-            testa.Add(hash1);
-            testa.Add(hash2);
-
-            HashTimer<int, Double> hashtimer = new HashTimer<int, double>(testa);
-
-
-
             /*
-            testTre1.AddList(ikkeAvføring);
+                        for (int i = 0; i < 50; i++)
+                        {
 
-            testTre1.PrintInOrder();
-            */
+                            hash2.Add(i, i / 2);
+                        }
+
+                        List<IHashTableDict<int, Double>> testa = new List<IHashTableDict<int, double>>();
+
+                        testa.Add(hash);
+                        testa.Add(hash1);
+                        testa.Add(hash2);
+
+                        HashTimer<int, Double> hashtimer = new HashTimer<int, double>(testa);
+
+                        HashQ<int, int> test = new HashQ<int, int>();
+
+                        test.Add(1, 1);
+                        test.Add(2, 2);
+                        test.Add(3, 3);
+                        test.Add(4, 4);
+
+                        var ad = test[4];
+
+                        /*
+                        testTre1.AddList(ikkeAvføring);
+
+                        testTre1.PrintInOrder();
+                        */
             //var pizza = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
 
             /*
@@ -100,21 +102,44 @@ namespace EpicAlgo
 
             KeyValuePair<int, Actor> t = new KeyValuePair<int, Actor>();
             
-/*      
+   */
+            KeyValuePair<int, Double>[] kvpArraytest = new KeyValuePair<int, double>[100000];
+            for (int i = 0; i < 100000; i++)
+            {
+                KeyValuePair<int, Double> temp = new KeyValuePair<int, Double>(i, i/2);
+                kvpArraytest[i] = temp;
+            }
 
-            List<Double> intList = new List<Double>();
+            HashQ<int, Double> hah1 = new HashQ<int, double>();
+            HashQ<int, Double> hah2 = new HashQ<int, double>();
+            HashQ<int, Double> hah3 = new HashQ<int, double>();
+
+            HashTimer<int, Double> navn = new HashTimer<int, double>(hah1);
+
+            navn.TakeTime(kvpArraytest);
+            navn.Print();
+
+            /*
+            var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
+            TestBinaryTree<double> intTre = new TestBinaryTree<double>(intComparer);
+            TestBinaryTree<double> intTre1 = new TestBinaryTree<double>(intComparer);
+            TestBinaryTree<double> intTre2 = new TestBinaryTree<double>(intComparer);
+
+            List<ITree<double>> treelist = new List<ITree<double>>();
+            treelist.Add(intTre);
+            treelist.Add(intTre1);
+            treelist.Add(intTre2);
+            List<double> intList = new List<double>();
             Random ran = new Random();
             for (int i = 0; i < 50000; i++)
             {
               
                 intList.Add(ran.NextDouble());
             }
-            intTre.AddDataList(intList);
-            intTre.PrintInOrder(intTre.GetRoot());
-            Console.WriteLine("Test av timer:");
-            intTre.TakeTime(intList);
-            /*
 
+            TreeTimer<double> treeTimer = new TreeTimer<double>(treelist);
+            treeTimer.TakeTimeList(intList);
+            treeTimer.Print();*/
 
             //*****************************************/
 
@@ -123,7 +148,7 @@ namespace EpicAlgo
 
 
             //*****************************************//
-            
+
             /*
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
@@ -141,7 +166,7 @@ namespace EpicAlgo
                 Console.WriteLine(element.Key + "   " + element.Value);
             }
             */
-            
+
         }
     }
 }

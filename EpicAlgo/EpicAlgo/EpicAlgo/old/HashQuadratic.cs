@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -185,7 +185,12 @@ namespace EpicAlgo.HashTables
 
         public bool Remove(KeyValuePair<K, T> item)
         {
-            throw new NotImplementedException();
+            var k = item.Key;
+
+            if (base.Remove(k))
+            {
+                return true;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -196,6 +201,6 @@ namespace EpicAlgo.HashTables
 IEnumerator IEnumerable.GetEnumerator()
 {
    return ((IEnumerable<KeyValuePair<K, T>>)this).GetEnumerator();
-}*/
-    }
 }
+    }
+}*/
