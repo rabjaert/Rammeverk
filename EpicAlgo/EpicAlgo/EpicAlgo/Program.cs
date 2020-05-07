@@ -40,14 +40,14 @@ namespace EpicAlgo
             ikkeAvføring.Add(person6);
             ikkeAvføring.Add(person7);
             ikkeAvføring.Add(person8);
-
+         
             // Comparer<Actor>.Create((x, y) => -x.Fornavn.CompareTo(y.Fornavn));
             var pizza = Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn));
 
             //BinaryTree Example
             BinaryTree<Actor> testTre = new BinaryTree<Actor>(pizza);
 
-            TestBinaryTree<Actor> testTre1 = new TestBinaryTree<Actor>(pizza);
+            BinaryTree<Actor> testTre1 = new BinaryTree<Actor>(pizza);
 
 
             KeyValuePair<int, Double>[] kvpArray = new KeyValuePair<int, double>[50];
@@ -103,6 +103,7 @@ namespace EpicAlgo
             KeyValuePair<int, Actor> t = new KeyValuePair<int, Actor>();
             
    */
+            /*
             KeyValuePair<int, Double>[] kvpArraytest = new KeyValuePair<int, double>[100000];
             for (int i = 0; i < 100000; i++)
             {
@@ -149,23 +150,20 @@ namespace EpicAlgo
 
             //*****************************************//
 
-            /*
-            HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
+            
+            HashQ<int, Actor> table = new HashQ<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);
             table.Add(3, person3);
             table.Add(4, person4);
             table.Add(5, person5);
-            foreach (var element in table)
-            {
-                Console.WriteLine(element.Key + "   " + element.Value);
-            }
+            table.Print();
+            Console.WriteLine("\n");
+            Console.WriteLine("Fjerner en person");
+            Console.WriteLine("\n");
             table.Remove(5);
-            foreach (var element in table)
-            {
-                Console.WriteLine(element.Key + "   " + element.Value);
-            }
-            */
+            table.Print();
+            
 
         }
     }

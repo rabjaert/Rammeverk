@@ -47,7 +47,7 @@ namespace EpicAlgo.HashTables
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            
+            table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
             return GetEnumerator();
 
@@ -143,7 +143,7 @@ namespace EpicAlgo.HashTables
             return (IEnumerator)dictionary;
            // return GetEnumerator();
            */
-           /*
+
             KeyValuePair<K,T>[] kvpArray = new KeyValuePair<K,T>[table.Length];
 
 
@@ -151,9 +151,6 @@ namespace EpicAlgo.HashTables
             {
                 yield return p;
             }
-            */
-            f
-            return table.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
         }
 

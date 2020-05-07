@@ -9,6 +9,7 @@ namespace EpicAlgo.Trees.BinaryTree
     {
 
         protected IBinaryNode<T> Root;
+       
         protected Comparer<T> Comparer;
 
         protected void AddData(T data)
@@ -107,8 +108,6 @@ namespace EpicAlgo.Trees.BinaryTree
             return node;
         }
 
-
-
         protected T MinValue(IBinaryNode<T> root)
         {
             if (root.GetLeftNode() != null)
@@ -117,6 +116,20 @@ namespace EpicAlgo.Trees.BinaryTree
             }
             return root.GetData();
         }
+
+        protected static IBinaryNode<T> deleteTree(IBinaryNode<T> root)
+        {
+            if (root != null)
+            {
+                deleteTree(root.GetLeftNode());
+                deleteTree(root.GetRightNode());
+                Console.WriteLine("Deleting Node:" + root.GetData());
+                root = null;
+                return root;
+            }
+            return null;
+        }
+        
         protected void PrintInOrder(IBinaryNode<T> root)
         {
             if (root != null)
@@ -126,6 +139,7 @@ namespace EpicAlgo.Trees.BinaryTree
                 PrintInOrder(root.GetRightNode());
             }
         }
+        
         protected void PrintPostOrder(IBinaryNode<T> root)
         {
             throw new NotImplementedException();

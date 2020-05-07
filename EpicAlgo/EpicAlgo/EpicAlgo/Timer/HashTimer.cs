@@ -40,7 +40,7 @@ namespace EpicAlgo.Timer
 
         }
 
-        public void TakeTime(KeyValuePair<K,T>[] kvp)
+        public void TakeTime(Dictionary<K,T> kvp)
         {
 
             foreach (IHashTableCollection<K, T> hashtable in HashTable)
