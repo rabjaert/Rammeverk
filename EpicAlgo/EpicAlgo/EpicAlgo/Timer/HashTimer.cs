@@ -9,7 +9,8 @@ namespace EpicAlgo.Timer
     class HashTimer<K,T> : IHashComparison<K,T>
     {
         List<IHashTableCollection<K, T>> HashTable = new List<IHashTableCollection<K, T>>();
-        Dictionary<IHashTableCollection<K, T>, Stopwatch> dict = new Dictionary<IHashTableCollection<K, T>, Stopwatch>();
+        Dictionary<IHashTableCollection<K, T>, Stopwatch> InsertDictionary = new Dictionary<IHashTableCollection<K, T>, Stopwatch>();
+        Dictionary<IHashTableCollection<K, T>, Stopwatch> RemoveDictionary = new Dictionary<IHashTableCollection<K, T>, Stopwatch>();
 
         public HashTimer(List<IHashTableCollection<K, T>> hashtable)
         {
@@ -21,27 +22,40 @@ namespace EpicAlgo.Timer
             HashTable.Add(hashtable);
         }
 
-
-        public void TakeTime(K k, T t)
+        public void InsertTime(K k, T t)
         {
-
             foreach (IHashTableCollection<K, T> hashtable in HashTable)
             {
                 KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 hashtable.Add(kvp);
-                dict.Add(hashtable, stopwatch);
+                InsertDictionary.Add(hashtable, stopwatch);
                 stopwatch.Stop();
-
-                
-                
             }
-
         }
 
-        public void TakeTime(Dictionary<K,T> kvp)
+        public void InsertTime(Dictionary<K, T> dict)
         {
+            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            {
+
+                
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                foreach (var item in dict)
+                {
+                    KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(item.Key, item.Value);
+                    hashtable.Add(kvp);
+                }
+                InsertDictionary.Add(hashtable, stopwatch);
+                stopwatch.Stop();
+            }
+        }
+
+        public void InsertTime(List<KeyValuePair<K, T>> kvp)
+        {
+
 
             foreach (IHashTableCollection<K, T> hashtable in HashTable)
             {
@@ -50,25 +64,100 @@ namespace EpicAlgo.Timer
                 stopwatch.Start();
                 foreach (var item in kvp)
                 {
+
                     hashtable.Add(item);
                 }
-                dict.Add(hashtable, stopwatch);
+                InsertDictionary.Add(hashtable, stopwatch);
                 stopwatch.Stop();
 
-                
-            }
 
+            }
+        }
+
+        public void RemoveTime(K k, T t)
+        {
+            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            {
+                KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                hashtable.Remove(kvp);
+                RemoveDictionary.Add(hashtable, stopwatch);
+                stopwatch.Stop();
+            }
+        }
+
+        public void RemoveTime(Dictionary<K, T> dict)
+        {
+            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            {
+
+
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                foreach (var item in dict)
+                {
+                    KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(item.Key, item.Value);
+                    hashtable.Remove(kvp);
+                }
+                RemoveDictionary.Add(hashtable, stopwatch);
+                stopwatch.Stop();
+            }
+        }
+
+        public void RemoveTime(List<KeyValuePair<K, T>> kvp)
+        {
+
+
+            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            {
+
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                foreach (var item in kvp)
+                {
+
+                    hashtable.Remove(item);
+                }
+                RemoveDictionary.Add(hashtable, stopwatch);
+                stopwatch.Stop();
+
+
+            }
+        }
+
+        public void PrintInsert()
+        {
+            if (InsertDictionary.Count != 0)
+            {
+                foreach (var item in InsertDictionary)
+                {
+                    int seconds = item.Value.Elapsed.Seconds;
+                    int miliseconds = item.Value.Elapsed.Milliseconds;
+
+                    Console.WriteLine("Inserted in HashTable in: \n" + "HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds\n");
+                }
+            }
+        }
+
+        public void PrintRemove()
+        {
+            if (RemoveDictionary.Count != 0)
+            {
+                foreach (var item in RemoveDictionary)
+                {
+                    int seconds = item.Value.Elapsed.Seconds;
+                    int miliseconds = item.Value.Elapsed.Milliseconds;
+
+                    Console.WriteLine("Removed from HashTable in: \n" + "HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds\n");
+                }
+            }
         }
 
         public void Print()
         {
-            foreach (var item in dict)
-            {
-                int seconds = item.Value.Elapsed.Seconds;
-                int miliseconds = item.Value.Elapsed.Milliseconds;
-
-                Console.WriteLine("HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
-            }
+            PrintInsert();
+            PrintRemove();
         }
     }
 }

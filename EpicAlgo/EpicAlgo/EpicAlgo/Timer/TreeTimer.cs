@@ -9,7 +9,7 @@ namespace EpicAlgo.Timer
     public class TreeTimer<T> : ITreeComparison<T>
     {
         List<ITree<T>> Tree = new List<ITree<T>>();
-        Dictionary<ITree<T>, Stopwatch> Dict = new Dictionary<ITree<T>, Stopwatch>();
+        Dictionary<ITree<T>, Stopwatch> InsertDictionary = new Dictionary<ITree<T>, Stopwatch>();
 
         public TreeTimer(List<ITree<T>> tree)
         {
@@ -27,7 +27,7 @@ namespace EpicAlgo.Timer
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 tree.Add(t);
-                Dict.Add(tree, stopwatch);
+                InsertDictionary.Add(tree, stopwatch);
                 stopwatch.Stop();
 
                 
@@ -40,8 +40,11 @@ namespace EpicAlgo.Timer
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                tree.AddList(t);
-                Dict.Add(tree, stopwatch);
+                foreach (var item in t)
+                {
+                    tree.Add(item);
+                }
+                InsertDictionary.Add(tree, stopwatch);
                 stopwatch.Stop();
 
 
@@ -50,7 +53,7 @@ namespace EpicAlgo.Timer
 
         public void Print()
         {
-            foreach (var item in Dict)
+            foreach (var item in InsertDictionary)
             {
                 int seconds = item.Value.Elapsed.Seconds;
                 int miliseconds = item.Value.Elapsed.Milliseconds;

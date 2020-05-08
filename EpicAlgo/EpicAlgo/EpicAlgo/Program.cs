@@ -152,7 +152,7 @@ namespace EpicAlgo
             //*****************************************//
 
             
-            HashQtest<int, Actor> table = new HashQtest<int, Actor>();
+            HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);
             table.Add(3, person3);
@@ -164,7 +164,10 @@ namespace EpicAlgo
             Console.WriteLine("\n");
             table.Remove(5);
             table.Print();
-            
+
+
+
+           
 
         }
     }

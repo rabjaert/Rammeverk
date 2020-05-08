@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using EpicAlgo.Interfaces;
 
-namespace EpicAlgo.henriktest
+namespace EpicAlgo.HashTables
 {
-    sealed class HashQtest<K, T> : IHashTableCollectionTest<K, T>
+    sealed class HashQuadratic<K, T> : IHashTableCollection<K,T>
     {
 
         private KeyValuePair<K, T>[] table;
@@ -16,7 +16,7 @@ namespace EpicAlgo.henriktest
 
         public bool IsReadOnly => throw new NotImplementedException();
 
-        public HashQtest()
+        public HashQuadratic()
         {
             table = new KeyValuePair<K, T>[16];
             Count = 0;
@@ -177,10 +177,34 @@ namespace EpicAlgo.henriktest
         {
             if (loadFactor < 0.75)
             {
-                table = new KeyValuePair<K, T>[table.Length * 2];
+                table = new KeyValuePair<K, T>[PrimeCalc(table.Length * 2)];
             }
-            
 
+        }
+
+        public int PrimeCalc(int number)
+        {
+            while (true)
+            {
+                bool isPrime = true;
+                //increment the number by 1 each time
+                number = number + 1;
+
+                int squaredNumber = (int)Math.Sqrt(number);
+
+                //start at 2 and increment by 1 until it gets to the squared number
+                for (int i = 2; i <= squaredNumber; i++)
+                {
+                    //how do I check all i's?
+                    if (number % i == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                    return number;
+            }
         }
 
         public void Print() {
