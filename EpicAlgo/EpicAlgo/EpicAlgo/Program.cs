@@ -16,10 +16,6 @@ namespace EpicAlgo
         static void Main(string[] args)
         {
 
-
-
-
-            
             //Actor Objects
             Actor person1 = new Actor("Roger", "Knutsen", 20);
             Actor person2 = new Actor("Robert", "Lundeby", 32);
@@ -121,11 +117,11 @@ namespace EpicAlgo
             navn.TakeTime(kvpArraytest);
             navn.Print();
 
-            /*
+            */
             var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
-            TestBinaryTree<double> intTre = new TestBinaryTree<double>(intComparer);
-            TestBinaryTree<double> intTre1 = new TestBinaryTree<double>(intComparer);
-            TestBinaryTree<double> intTre2 = new TestBinaryTree<double>(intComparer);
+            BinaryTree<double> intTre = new BinaryTree<double>(intComparer);
+            BinaryTree<double> intTre1 = new BinaryTree<double>(intComparer);
+            BinaryTree<double> intTre2 = new BinaryTree<double>(intComparer);
 
             List<ITree<double>> treelist = new List<ITree<double>>();
             treelist.Add(intTre);
@@ -133,15 +129,17 @@ namespace EpicAlgo
             treelist.Add(intTre2);
             List<double> intList = new List<double>();
             Random ran = new Random();
-            for (int i = 0; i < 50000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
               
                 intList.Add(ran.NextDouble());
             }
 
             TreeTimer<double> treeTimer = new TreeTimer<double>(treelist);
-            treeTimer.TakeTimeList(intList);
-            treeTimer.Print();*/
+            treeTimer.InsertTime(intList);
+            treeTimer.RemoveTime(intList);
+            treeTimer.Print();
+
 
             //*****************************************/
 
@@ -151,7 +149,7 @@ namespace EpicAlgo
 
             //*****************************************//
             
-            
+            /*
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);
@@ -164,7 +162,7 @@ namespace EpicAlgo
             Console.WriteLine("\n");
             table.Remove(5);
             table.Print();
-
+            */
             
 
            

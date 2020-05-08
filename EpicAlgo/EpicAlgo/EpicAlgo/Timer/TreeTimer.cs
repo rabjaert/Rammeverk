@@ -59,7 +59,7 @@ namespace EpicAlgo.Timer
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 tree.Remove(t);
-                InsertDictionary.Add(tree, stopwatch);
+                RemoveDictionary.Add(tree, stopwatch);
                 stopwatch.Stop();
 
 
@@ -76,7 +76,7 @@ namespace EpicAlgo.Timer
                 {
                     tree.Remove(item);
                 }
-                InsertDictionary.Add(tree, stopwatch);
+                RemoveDictionary.Add(tree, stopwatch);
                 stopwatch.Stop();
 
 
