@@ -131,19 +131,6 @@ namespace EpicAlgo.HashTables
         public IEnumerator<KeyValuePair<K, T>> GetEnumerator()
         {
 
-            /*
-            var dictionary = new Dictionary<K, T>();
-            foreach (var item in this)
-            {
-                dictionary.Add(item.Key, item.Value);
-            }
-            //return new Enumerator(this, Enumerator.KeyValuePair);
-            //return (IEnumerator)this;
-            //return default(IEnumerator);
-            return (IEnumerator)dictionary;
-           // return GetEnumerator();
-           */
-
             
 
 

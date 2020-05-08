@@ -10,6 +10,7 @@ namespace EpicAlgo.Timer
     {
         List<ITree<T>> Tree = new List<ITree<T>>();
         Dictionary<ITree<T>, Stopwatch> InsertDictionary = new Dictionary<ITree<T>, Stopwatch>();
+        Dictionary<ITree<T>, Stopwatch> RemoveDictionary = new Dictionary<ITree<T>, Stopwatch>();
 
         public TreeTimer(List<ITree<T>> tree)
         {
@@ -20,7 +21,7 @@ namespace EpicAlgo.Timer
         {
             Tree.Add(tree);
         }
-        public void TakeTime(T t)
+        public void InsertTime(T t)
         {
             foreach (ITree<T> tree in Tree)
             {
@@ -34,7 +35,7 @@ namespace EpicAlgo.Timer
             }
         }
 
-        public void TakeTimeList(List<T> t)
+        public void InsertTime(List<T> t)
         {
             foreach (ITree<T> tree in Tree)
             {
@@ -51,15 +52,70 @@ namespace EpicAlgo.Timer
             }
         }
 
+        public void RemoveTime(T t)
+        {
+            foreach (ITree<T> tree in Tree)
+            {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                tree.Remove(t);
+                InsertDictionary.Add(tree, stopwatch);
+                stopwatch.Stop();
+
+
+            }
+        }
+
+        public void RemoveTime(List<T> t)
+        {
+            foreach (ITree<T> tree in Tree)
+            {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                foreach (var item in t)
+                {
+                    tree.Remove(item);
+                }
+                InsertDictionary.Add(tree, stopwatch);
+                stopwatch.Stop();
+
+
+            }
+        }
+
+        public void PrintInsert()
+        {
+            if (InsertDictionary.Count != 0)
+            {
+                foreach (var item in InsertDictionary)
+                {
+                    int seconds = item.Value.Elapsed.Seconds;
+                    int miliseconds = item.Value.Elapsed.Milliseconds;
+
+                    Console.WriteLine("HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
+                }
+            }
+        }
+
+        public void PrintRemove()
+        {
+            if (RemoveDictionary.Count != 0)
+            {
+                foreach (var item in RemoveDictionary)
+                {
+                    int seconds = item.Value.Elapsed.Seconds;
+                    int miliseconds = item.Value.Elapsed.Milliseconds;
+
+                    Console.WriteLine("HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
+                }
+            }
+
+        }
+
         public void Print()
         {
-            foreach (var item in InsertDictionary)
-            {
-                int seconds = item.Value.Elapsed.Seconds;
-                int miliseconds = item.Value.Elapsed.Milliseconds;
-
-                Console.WriteLine("HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
-            }
+            PrintInsert();
+            PrintRemove();
         }
     }
 }

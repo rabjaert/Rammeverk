@@ -150,7 +150,7 @@ namespace EpicAlgo
 
 
             //*****************************************//
-
+            
             
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
@@ -165,7 +165,7 @@ namespace EpicAlgo
             table.Remove(5);
             table.Print();
 
-
+            
 
            
 

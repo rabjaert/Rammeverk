@@ -6,6 +6,14 @@ namespace EpicAlgo.Interfaces
 {
     public interface ITreeComparison<T>
     {
-        public void TakeTime(T t);
+        public void InsertTime(T t);
+        public void InsertTime(List<T> t);
+        public void RemoveTime(T t);
+        public void RemoveTime(List<T> t);
+
+        public void PrintInsert();
+        public void PrintRemove();
+        public void Print();
+
     }
 }
