@@ -1,0 +1,7 @@
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\bin\Release\netcoreapp3.1\EpicAlgo.deps.json
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\bin\Release\netcoreapp3.1\EpicAlgo.dll
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\bin\Release\netcoreapp3.1\EpicAlgo.pdb
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\obj\Release\netcoreapp3.1\EpicAlgo.AssemblyInfoInputs.cache
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\obj\Release\netcoreapp3.1\EpicAlgo.AssemblyInfo.cs
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\obj\Release\netcoreapp3.1\EpicAlgo.dll
+D:\GitHub\Rammeverk\EpicAlgoLib\EpicAlgo\EpicAlgo\obj\Release\netcoreapp3.1\EpicAlgo.pdb
