@@ -21,5 +21,5 @@ namespace EpicAlgo.Interfaces
 
         void PrintPostOrder(IBinaryNode<T> root);
 
-        }
+    }
 }

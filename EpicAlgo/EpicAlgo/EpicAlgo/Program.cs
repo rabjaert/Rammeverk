@@ -1,13 +1,9 @@
 ﻿using EpicAlgo.Models;
 using EpicAlgo.Trees.BinaryTree;
 using System;
-using EpicAlgo.HashTables;
-using System.Collections;
 using System.Collections.Generic;
-
 using EpicAlgo.Interfaces;
 using EpicAlgo.Timer;
-using EpicAlgo.henriktest;
 
 namespace EpicAlgo
 {

@@ -10,7 +10,6 @@ namespace EpicAlgo.Interfaces
         public void InsertTime(List<T> t);
         public void RemoveTime(T t);
         public void RemoveTime(List<T> t);
-
         public void PrintInsert();
         public void PrintRemove();
         public void Print();

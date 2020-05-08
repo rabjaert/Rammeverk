@@ -43,7 +43,7 @@ namespace EpicAlgo.Trees.BinaryTree
 
         public void Clear()
         {
-            deleteTree(Root);
+            DeleteTree(Root);
         }
 
         public bool Contains(T item)

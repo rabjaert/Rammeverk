@@ -22,8 +22,6 @@ namespace EpicAlgo.HashTables
             Count = 0;
         }
 
-        
-
         public T this[K key]
         {
             get
