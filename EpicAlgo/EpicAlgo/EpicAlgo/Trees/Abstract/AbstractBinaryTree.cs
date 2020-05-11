@@ -1,12 +1,14 @@
 ﻿using EpicAlgo.Interfaces;
+using EpicAlgo.Trees.BinaryTree;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpicAlgo.Trees.BinaryTree
+namespace EpicAlgo.Trees.Abstract
 {
+   
     public abstract class AbstractBinaryTree<T> 
-    {
+        {
 
         protected IBinaryNode<T> Root;
        

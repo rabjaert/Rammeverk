@@ -1,4 +1,5 @@
 ﻿using EpicAlgo.Interfaces;
+using EpicAlgo.Trees.Abstract;
 using System;
 using System.Collections;
 using System.Collections.Generic;
