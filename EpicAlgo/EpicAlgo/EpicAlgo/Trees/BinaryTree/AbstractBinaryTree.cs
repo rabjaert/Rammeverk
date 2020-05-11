@@ -38,6 +38,53 @@ namespace EpicAlgo.Trees.BinaryTree
             return (RContains(root.GetLeftNode(), data) || RContains(root.GetRightNode(), data));
         }
 
+        protected IBinaryNode<T> FindNode(IBinaryNode<T> node, T data)
+        {
+            if (node == null) return node;
+            if (node.GetData().Equals(data)) return node;
+
+            if (Comparer.Compare(data, node.GetData()) < 0)
+            {
+                return FindNode(node.GetLeftNode(), data);
+            }
+            else if (Comparer.Compare(data, node.GetData()) > 0)
+            {
+                return FindNode(node.GetRightNode(), data);
+            }
+            else
+            {
+                // node with no leaf nodes
+                if (node.GetLeftNode() == null && node.GetRightNode() == null)
+                {
+
+                    return null;
+                }
+                else if (node.GetLeftNode() == null)
+                {
+                    // node with one node (no left node)
+
+                    return node.GetRightNode();
+                }
+                else if (node.GetRightNode() == null)
+                {
+                    // node with one node (no right node)
+
+                    return node.GetLeftNode();
+                }
+                else
+                {
+                    // nodes with two nodes
+                    // search for min number in right sub tree
+                    T minValues = MinValue(node.GetRightNode());
+                    node.SetData(minValues);
+                    node.SetRightNode(FindNode(node.GetRightNode(), minValues));
+
+                }
+                return node;
+
+            }
+        }
+
         protected IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data)
         {
             if (node == null) return node;
@@ -55,19 +102,19 @@ namespace EpicAlgo.Trees.BinaryTree
                 // node with no leaf nodes
                 if (node.GetLeftNode() == null && node.GetRightNode() == null)
                 {
-                    Console.WriteLine("deleting " + data);
+                   
                     return null;
                 }
                 else if (node.GetLeftNode() == null)
                 {
                     // node with one node (no left node)
-                    Console.WriteLine("deleting " + data);
+                   
                     return node.GetRightNode();
                 }
                 else if (node.GetRightNode() == null)
                 {
                     // node with one node (no right node)
-                    Console.WriteLine("deleting " + data);
+                   
                     return node.GetLeftNode();
                 }
                 else
@@ -77,7 +124,7 @@ namespace EpicAlgo.Trees.BinaryTree
                     T minValues = MinValue(node.GetRightNode());
                     node.SetData(minValues);
                     node.SetRightNode(DeleteNode(node.GetRightNode(), minValues));
-                    Console.WriteLine("deleting " + data);
+     
                 }
             }
 
@@ -117,13 +164,12 @@ namespace EpicAlgo.Trees.BinaryTree
             return root.GetData();
         }
 
-        protected static IBinaryNode<T> deleteTree(IBinaryNode<T> root)
+        protected static IBinaryNode<T> DeleteTree(IBinaryNode<T> root)
         {
             if (root != null)
             {
-                deleteTree(root.GetLeftNode());
-                deleteTree(root.GetRightNode());
-                Console.WriteLine("Deleting Node:" + root.GetData());
+                DeleteTree(root.GetLeftNode());
+                DeleteTree(root.GetRightNode());
                 root = null;
                 return root;
             }

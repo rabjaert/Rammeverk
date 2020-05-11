@@ -8,23 +8,23 @@ namespace EpicAlgo.Timer
 {
     class HashTimer<K,T> : IHashComparison<K,T>
     {
-        List<IHashTableCollection<K, T>> HashTable = new List<IHashTableCollection<K, T>>();
-        Dictionary<IHashTableCollection<K, T>, Stopwatch> InsertDictionary = new Dictionary<IHashTableCollection<K, T>, Stopwatch>();
-        Dictionary<IHashTableCollection<K, T>, Stopwatch> RemoveDictionary = new Dictionary<IHashTableCollection<K, T>, Stopwatch>();
+        List<ICollection<KeyValuePair<K, T>>> HashTable = new List<ICollection<KeyValuePair<K, T>>>();
+        Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> InsertDictionary = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
+        Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> RemoveDictionary = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
 
-        public HashTimer(List<IHashTableCollection<K, T>> hashtable)
+        public HashTimer(List<ICollection<KeyValuePair<K, T>>> hashtable)
         {
             HashTable = hashtable;
         }
 
-        public HashTimer(IHashTableCollection<K, T> hashtable)
+        public HashTimer(ICollection<KeyValuePair<K, T>> hashtable)
         {
             HashTable.Add(hashtable);
         }
 
         public void InsertTime(K k, T t)
         {
-            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
                 KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
                 Stopwatch stopwatch = new Stopwatch();
@@ -37,7 +37,7 @@ namespace EpicAlgo.Timer
 
         public void InsertTime(Dictionary<K, T> dict)
         {
-            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
 
                 
@@ -57,7 +57,7 @@ namespace EpicAlgo.Timer
         {
 
 
-            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
 
                 Stopwatch stopwatch = new Stopwatch();
@@ -76,7 +76,7 @@ namespace EpicAlgo.Timer
 
         public void RemoveTime(K k, T t)
         {
-            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
                 KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
                 Stopwatch stopwatch = new Stopwatch();
@@ -89,7 +89,7 @@ namespace EpicAlgo.Timer
 
         public void RemoveTime(Dictionary<K, T> dict)
         {
-            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
 
 
@@ -109,7 +109,7 @@ namespace EpicAlgo.Timer
         {
 
 
-            foreach (IHashTableCollection<K, T> hashtable in HashTable)
+            foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
 
                 Stopwatch stopwatch = new Stopwatch();

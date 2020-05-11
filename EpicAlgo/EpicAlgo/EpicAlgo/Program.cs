@@ -150,8 +150,8 @@ namespace EpicAlgo
 
 
             //*****************************************//
-            
-            
+
+            /*
             HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
             table.Add(1, person1);
             table.Add(2, person2);
@@ -164,6 +164,56 @@ namespace EpicAlgo
             Console.WriteLine("\n");
             table.Remove(5);
             table.Print();
+            */
+
+            var comparer = Comparer<double>.Create((x, y) => -y.CompareTo(x));
+            List<double> intList = new List<double>();
+           
+            Random ran = new Random();
+            for (int i = 0; i < 10000; i++)
+            {
+
+                intList.Add(ran.NextDouble());
+            }
+
+            BinaryTree<double> bin = new BinaryTree<double>(comparer);
+            bin.AddList(intList);
+
+            List<double> heiIgjen = new List<double>(0);
+
+            /*
+            for (var i = 0; i < 500000; i++) {
+
+                
+                
+            }*/
+            heiIgjen.AddRange(intList);
+            bin.AddList(intList);
+            List<ICollection<double>> collections = new List<ICollection<double>>();
+
+            collections.Add(bin);
+            collections.Add(heiIgjen);
+            Console.WriteLine(bin.FindData(5));
+            TreeTimer<double> halla = new TreeTimer<double>(collections);
+            halla.RemoveTime(intList);
+            halla.PrintRemove();
+
+            var fornavn = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
+            BinaryTree<Actor> actorTre = new BinaryTree<Actor>(fornavn);
+            actorTre.Add(person1);
+            actorTre.Add(person2);
+            Console.WriteLine(actorTre.FindData(person1));
+
+
+
+ 
+
+            HashQuadratic<int, double> hash = new HashQuadratic<int, double>();
+
+            
+
+
+
 
             
 

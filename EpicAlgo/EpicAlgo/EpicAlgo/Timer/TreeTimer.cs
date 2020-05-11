@@ -8,22 +8,22 @@ namespace EpicAlgo.Timer
 {
     public class TreeTimer<T> : ITreeComparison<T>
     {
-        List<ITree<T>> Tree = new List<ITree<T>>();
-        Dictionary<ITree<T>, Stopwatch> InsertDictionary = new Dictionary<ITree<T>, Stopwatch>();
-        Dictionary<ITree<T>, Stopwatch> RemoveDictionary = new Dictionary<ITree<T>, Stopwatch>();
+        List<ICollection<T>> Tree = new List<ICollection<T>>();
+        Dictionary<ICollection<T>, Stopwatch> InsertDictionary = new Dictionary<ICollection<T>, Stopwatch>();
+        Dictionary<ICollection<T>, Stopwatch> RemoveDictionary = new Dictionary<ICollection<T>, Stopwatch>();
 
-        public TreeTimer(List<ITree<T>> tree)
+        public TreeTimer(List<ICollection<T>> tree)
         {
             Tree = tree;
         }
 
-        public TreeTimer(ITree<T> tree)
+        public TreeTimer(ICollection<T> tree)
         {
             Tree.Add(tree);
         }
         public void InsertTime(T t)
         {
-            foreach (ITree<T> tree in Tree)
+            foreach (ICollection<T> tree in Tree)
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -37,7 +37,7 @@ namespace EpicAlgo.Timer
 
         public void InsertTime(List<T> t)
         {
-            foreach (ITree<T> tree in Tree)
+            foreach (ICollection<T> tree in Tree)
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -54,12 +54,12 @@ namespace EpicAlgo.Timer
 
         public void RemoveTime(T t)
         {
-            foreach (ITree<T> tree in Tree)
+            foreach (ICollection<T> tree in Tree)
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 tree.Remove(t);
-                InsertDictionary.Add(tree, stopwatch);
+                RemoveDictionary.Add(tree, stopwatch);
                 stopwatch.Stop();
 
 
@@ -68,7 +68,7 @@ namespace EpicAlgo.Timer
 
         public void RemoveTime(List<T> t)
         {
-            foreach (ITree<T> tree in Tree)
+            foreach (ICollection<T> tree in Tree)
             {
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -76,7 +76,7 @@ namespace EpicAlgo.Timer
                 {
                     tree.Remove(item);
                 }
-                InsertDictionary.Add(tree, stopwatch);
+                RemoveDictionary.Add(tree, stopwatch);
                 stopwatch.Stop();
 
 

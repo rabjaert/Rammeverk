@@ -40,10 +40,14 @@ namespace EpicAlgo.Trees.BinaryTree
                 AddData(data[i]);
             }
         }
+        public T FindData(T data)
+        {
+            return base.FindNode(Root, data).GetData();
+        }
 
         public void Clear()
         {
-            deleteTree(Root);
+            DeleteTree(Root);
         }
 
         public bool Contains(T item)
