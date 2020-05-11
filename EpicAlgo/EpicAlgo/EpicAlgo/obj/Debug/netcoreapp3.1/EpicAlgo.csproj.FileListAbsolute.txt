@@ -20,3 +20,4 @@ D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.
 D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.dll
 D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.pdb
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.csprojAssemblyReference.cache
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.xml

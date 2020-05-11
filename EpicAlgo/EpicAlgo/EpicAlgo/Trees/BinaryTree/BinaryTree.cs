@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    sealed class BinaryTree<T> : AbstractBinaryTree<T>, ITree<T>
+    public class BinaryTree<T> : AbstractBinaryTree<T>, ITree<T>
     {
 
         public BinaryTree(Comparer<T> comparer)

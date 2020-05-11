@@ -7,7 +7,7 @@ using EpicAlgo.Interfaces;
 
 namespace EpicAlgo.HashTables
 {
-    sealed class HashQuadratic<K, T> : IHashTableCollection<K,T>
+    public class HashQuadratic<K, T> : IHashTableCollection<K,T>
     {
 
         /// <summary>The table</summary>
