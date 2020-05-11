@@ -22,6 +22,8 @@ namespace EpicAlgo.HashTables
             Count = 0;
         }
 
+        
+
         public T this[K key]
         {
             get
@@ -167,7 +169,7 @@ namespace EpicAlgo.HashTables
 
         }
 
-        public int PrimeCalc(int number)
+        public static int PrimeCalc(int number)
         {
             while (true)
             {
