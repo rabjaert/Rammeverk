@@ -8,20 +8,28 @@ namespace EpicAlgo.Timer
 {
     class HashTimer<K,T> : IHashComparison<K,T>
     {
-        List<ICollection<KeyValuePair<K, T>>> HashTable = new List<ICollection<KeyValuePair<K, T>>>();
-        Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> InsertDictionary = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
-        Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> RemoveDictionary = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
+        /// <summary>The hash table</summary>
+        private List<ICollection<KeyValuePair<K, T>>> HashTable = new List<ICollection<KeyValuePair<K, T>>>();
+        private Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> InsertDictionary { get; set; } = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
+        private Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> RemoveDictionary { get; set; } = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
 
+        /// <summary>Initializes a new instance of the <see cref="HashTimer{K, T}" /> class.</summary>
+        /// <param name="hashtable">The hashtable.</param>
         public HashTimer(List<ICollection<KeyValuePair<K, T>>> hashtable)
         {
             HashTable = hashtable;
         }
 
+        /// <summary>Initializes a new instance of the <see cref="HashTimer{K, T}" /> class.</summary>
+        /// <param name="hashtable">The hashtable.</param>
         public HashTimer(ICollection<KeyValuePair<K, T>> hashtable)
         {
             HashTable.Add(hashtable);
         }
 
+        /// <summary>Takes the time of inserting items.</summary>
+        /// <param name="k">The k.</param>
+        /// <param name="t">The t.</param>
         public void InsertTime(K k, T t)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
@@ -35,6 +43,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time of inserting items of a dictionary.</summary>
+        /// <param name="dict">The dictionary.</param>
         public void InsertTime(Dictionary<K, T> dict)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
@@ -53,6 +63,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time of inserting items of a list.</summary>
+        /// <param name="kvp">The KVP.</param>
         public void InsertTime(List<KeyValuePair<K, T>> kvp)
         {
 
@@ -74,6 +86,9 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time of removing items.</summary>
+        /// <param name="k">The k.</param>
+        /// <param name="t">The t.</param>
         public void RemoveTime(K k, T t)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
@@ -87,6 +102,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time of removing items of a dictionary.</summary>
+        /// <param name="dict">The dictionary.</param>
         public void RemoveTime(Dictionary<K, T> dict)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
@@ -105,6 +122,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time of removing items of a list.</summary>
+        /// <param name="kvp">The KVP.</param>
         public void RemoveTime(List<KeyValuePair<K, T>> kvp)
         {
 
@@ -126,6 +145,7 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Prints the amount of time it takes to insert.</summary>
         public void PrintInsert()
         {
             if (InsertDictionary.Count != 0)
@@ -140,6 +160,7 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Prints the amount of time it takes to remove.</summary>
         public void PrintRemove()
         {
             if (RemoveDictionary.Count != 0)
@@ -154,6 +175,7 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Prints this instance.</summary>
         public void Print()
         {
             PrintInsert();

@@ -134,14 +134,10 @@ namespace EpicAlgo.Trees.BinaryTree
         protected IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data)
         {
 
-
             if (node == null)
             {
                 node = new BinaryNode<T>(data);
             }
-
-
-
             else if (Comparer != null && Comparer.Compare(data, node.GetData()) < 0)
             {
 

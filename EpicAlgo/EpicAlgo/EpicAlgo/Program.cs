@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using EpicAlgo.Interfaces;
 using EpicAlgo.Timer;
+using EpicAlgo.HashTables;
 
 namespace EpicAlgo
 {
@@ -131,11 +132,11 @@ namespace EpicAlgo
                 intList.Add(ran.NextDouble());
             }
 
-            TreeTimer<double> treeTimer = new TreeTimer<double>(treelist);
+            /*TreeTimer<double> treeTimer = new TreeTimer<double>(treelist);
             treeTimer.InsertTime(intList);
             treeTimer.RemoveTime(intList);
             treeTimer.Print();
-
+            */
 
             //*****************************************/
 
@@ -160,9 +161,9 @@ namespace EpicAlgo
             */
 
             var comparer = Comparer<double>.Create((x, y) => -y.CompareTo(x));
-            List<double> intList = new List<double>();
+            List<double> intList1 = new List<double>();
            
-            Random ran = new Random();
+            Random ran1 = new Random();
             for (int i = 0; i < 10000; i++)
             {
 

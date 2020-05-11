@@ -8,19 +8,31 @@ namespace EpicAlgo.Timer
 {
     public class TreeTimer<T> : ITreeComparison<T>
     {
-        List<ICollection<T>> Tree = new List<ICollection<T>>();
-        Dictionary<ICollection<T>, Stopwatch> InsertDictionary = new Dictionary<ICollection<T>, Stopwatch>();
-        Dictionary<ICollection<T>, Stopwatch> RemoveDictionary = new Dictionary<ICollection<T>, Stopwatch>();
+        /// <summary>The tree</summary>
+        private List<ICollection<T>> Tree = new List<ICollection<T>>();
+        
+        /// <summary>Making global dictionaries with time stamps.</summary>
+        private Dictionary<ICollection<T>, Stopwatch> InsertDictionary { get; set; } = new Dictionary<ICollection<T>, Stopwatch>();
+        
+        /// <summary>Making global dictionaries with time stamps.</summary>
+        private Dictionary<ICollection<T>, Stopwatch> RemoveDictionary { get; set; } = new Dictionary<ICollection<T>, Stopwatch>();
 
+        /// <summary>Initializes a new instance of the <see cref="TreeTimer{T}" /> class.</summary>
+        /// <param name="tree">The tree.</param>
         public TreeTimer(List<ICollection<T>> tree)
         {
             Tree = tree;
         }
 
+        /// <summary>Initializes a new instance of the <see cref="TreeTimer{T}" /> class.</summary>
+        /// <param name="tree">The tree.</param>
         public TreeTimer(ICollection<T> tree)
         {
             Tree.Add(tree);
         }
+        
+        /// <summary>Takes the time of inserting items.</summary>
+        /// <param name="t">The t.</param>
         public void InsertTime(T t)
         {
             foreach (ICollection<T> tree in Tree)
@@ -35,6 +47,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time of inserting items to a list.</summary>
+        /// <param name="t">The t.</param>
         public void InsertTime(List<T> t)
         {
             foreach (ICollection<T> tree in Tree)
@@ -52,6 +66,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time to removing items.</summary>
+        /// <param name="t">The t.</param>
         public void RemoveTime(T t)
         {
             foreach (ICollection<T> tree in Tree)
@@ -66,6 +82,8 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Takes the time to removing items of a list.</summary>
+        /// <param name="t">The t.</param>
         public void RemoveTime(List<T> t)
         {
             foreach (ICollection<T> tree in Tree)
@@ -83,6 +101,7 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Prints the insert time.</summary>
         public void PrintInsert()
         {
             if (InsertDictionary.Count != 0)
@@ -97,6 +116,7 @@ namespace EpicAlgo.Timer
             }
         }
 
+        /// <summary>Prints the remove time.</summary>
         public void PrintRemove()
         {
             if (RemoveDictionary.Count != 0)
@@ -112,6 +132,7 @@ namespace EpicAlgo.Timer
 
         }
 
+        /// <summary>Prints this instance.</summary>
         public void Print()
         {
             PrintInsert();
