@@ -1,13 +1,12 @@
-﻿using EpicAlgo.Interfaces;
-using EpicAlgo.Trees.Abstract;
+﻿using EpicAlgo.Trees.Abstract;
+using EpicAlgo.Trees.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EpicAlgo.Trees.BinaryTree
 {
-    public class BinaryTree<T> : AbstractBinaryTree<T>, ITree<T>
+    public class BinaryTree<T> : AbstractBinaryTree<T>, ITreeCollection<T>
     {
 
         public BinaryTree(Comparer<T> comparer)

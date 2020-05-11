@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using EpicAlgo.Interfaces;
+using EpicAlgo.Trees.Interfaces.Internal;
 
 namespace EpicAlgo.Trees.BinaryTree
 {

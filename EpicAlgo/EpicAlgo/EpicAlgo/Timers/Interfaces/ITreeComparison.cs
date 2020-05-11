@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpicAlgo.Interfaces
+namespace EpicAlgo.Timers.Interfaces
 {
     public interface ITreeComparison<T>
     {

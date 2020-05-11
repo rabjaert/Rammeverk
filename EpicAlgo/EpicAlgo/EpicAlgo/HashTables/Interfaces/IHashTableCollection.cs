@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpicAlgo.Interfaces
+namespace EpicAlgo.HashTables.Interfaces
 {
-    public interface IHashTableCollection<K, T> : ICollection<KeyValuePair<K, T>>, IEnumerable<KeyValuePair<K, T>>
+    public interface IHashTableCollection<K, T> : ICollection<KeyValuePair<K, T>>
     {
+        public void Print();
     }
 }

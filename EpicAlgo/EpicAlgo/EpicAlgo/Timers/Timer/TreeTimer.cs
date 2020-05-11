@@ -1,10 +1,9 @@
-﻿using EpicAlgo.Interfaces;
+﻿using EpicAlgo.Timers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
-namespace EpicAlgo.Timer
+namespace EpicAlgo.Timers.Timer
 {
     public class TreeTimer<T> : ITreeComparison<T>
     {

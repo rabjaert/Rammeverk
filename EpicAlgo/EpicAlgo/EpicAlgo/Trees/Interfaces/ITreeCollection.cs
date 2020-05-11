@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EpicAlgo.Interfaces
+namespace EpicAlgo.Trees.Interfaces
 {
-    public interface ITree<T> : ICollection<T>
+    public interface ITreeCollection<T> : ICollection<T>
     {
         public void AddArray(T[] data);
         public void AddList(List<T> data);

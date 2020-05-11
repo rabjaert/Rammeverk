@@ -1,10 +1,9 @@
-﻿using EpicAlgo.Interfaces;
+﻿using EpicAlgo.Timers.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 
-namespace EpicAlgo.Timer
+namespace EpicAlgo.Timers.Timer
 {
     class HashTimer<K,T> : IHashComparison<K,T>
     {

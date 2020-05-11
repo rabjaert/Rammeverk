@@ -1,10 +1,8 @@
 ﻿using EpicAlgo.Models;
 using EpicAlgo.Trees.BinaryTree;
+using EpicAlgo.Trees.Interfaces;
 using System;
 using System.Collections.Generic;
-using EpicAlgo.Interfaces;
-using EpicAlgo.Timer;
-using EpicAlgo.HashTables;
 
 namespace EpicAlgo
 {
@@ -120,7 +118,7 @@ namespace EpicAlgo
             BinaryTree<double> intTre1 = new BinaryTree<double>(intComparer);
             BinaryTree<double> intTre2 = new BinaryTree<double>(intComparer);
 
-            List<ITree<double>> treelist = new List<ITree<double>>();
+            List<ITreeCollection<double>> treelist = new List<ITreeCollection<double>>();
             treelist.Add(intTre);
             treelist.Add(intTre1);
             treelist.Add(intTre2);
