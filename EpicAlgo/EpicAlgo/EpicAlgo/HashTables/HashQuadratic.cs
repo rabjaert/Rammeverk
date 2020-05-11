@@ -225,7 +225,7 @@ namespace EpicAlgo.HashTables
         /// <summary>Calculates the prime number.</summary>
         /// <param name="number">The number.</param>
         /// <returns></returns>
-        public static int PrimeCalc(int number)
+        private static int PrimeCalc(int number)
         {
             while (true)
             {
