@@ -1,12 +1,16 @@
-﻿using System;
+﻿using EpicAlgo.HashTables.Interfaces;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using EpicAlgo.Interfaces;
+
 
 namespace EpicAlgo.HashTables
 {
+    /// <summary>HashQuadratic class.</summary>
+    /// <typeparam name="K"></typeparam>
+    /// <typeparam name="T"></typeparam>
     public class HashQuadratic<K, T> : IHashTableCollection<K,T>
     {
 
