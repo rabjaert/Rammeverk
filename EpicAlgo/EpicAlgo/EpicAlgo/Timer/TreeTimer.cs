@@ -30,7 +30,26 @@ namespace EpicAlgo.Timer
         {
             Tree.Add(tree);
         }
-        
+
+        public TreeTimer()
+        {
+
+        }
+
+        public void AddCollection(ICollection<T> tree)
+        {
+            Tree.Add(tree);
+        }
+
+        public void AddCollection(List<ICollection<T>> tree)
+        {
+            foreach (var item in tree)
+            {
+                Tree.Add(item);
+            }
+
+        }
+
         /// <summary>Takes the time of inserting items.</summary>
         /// <param name="t">The t.</param>
         public void InsertTime(T t)

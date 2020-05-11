@@ -27,6 +27,25 @@ namespace EpicAlgo.Timer
             HashTable.Add(hashtable);
         }
 
+        public HashTimer()
+        {
+
+        }
+
+        public void AddCollection(ICollection<KeyValuePair<K, T>> hashtable)
+        {
+            HashTable.Add(hashtable);
+        }
+
+        public void AddCollection(List<ICollection<KeyValuePair<K, T>>> hashtable)
+        {
+            foreach (var item in hashtable)
+            {
+                HashTable.Add(item);
+            }
+
+        }
+
         /// <summary>Takes the time of inserting items.</summary>
         /// <param name="k">The k.</param>
         /// <param name="t">The t.</param>
