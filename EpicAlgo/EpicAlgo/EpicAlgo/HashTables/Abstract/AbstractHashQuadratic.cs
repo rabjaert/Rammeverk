@@ -250,14 +250,15 @@ namespace EpicAlgo.HashTables.Abstract
         /// <summary>Prints this instance.</summary>
         public void Print() {
 
-            foreach (var element in this) {
-                if (element.Key.ToString() != "0")
+            foreach (var element in this)
+            {
+                if (!element.Key.Equals(default(K)))
                 {
                     Console.WriteLine("Key:" + " " + element.Key
                  + "\n" + "Value:" + " " + element.Value + "\n");
                 }
 
-            
+
             }
         
         

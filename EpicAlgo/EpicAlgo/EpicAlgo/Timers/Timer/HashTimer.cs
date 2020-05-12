@@ -48,14 +48,14 @@ namespace EpicAlgo.Timers.Timer
         /// <summary>Takes the time of inserting items.</summary>
         /// <param name="k">The k.</param>
         /// <param name="t">The t.</param>
-        public void InsertTime(K k, T t)
+        public void InsertTime(KeyValuePair<K,T> item)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
-                KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
+                
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                hashtable.Add(kvp);
+                hashtable.Add(item);
                 InsertDictionary.Add(hashtable, stopwatch);
                 stopwatch.Stop();
             }
@@ -107,14 +107,14 @@ namespace EpicAlgo.Timers.Timer
         /// <summary>Takes the time of removing items.</summary>
         /// <param name="k">The k.</param>
         /// <param name="t">The t.</param>
-        public void RemoveTime(K k, T t)
+        public void RemoveTime(KeyValuePair<K, T> item)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
-                KeyValuePair<K, T> kvp = new KeyValuePair<K, T>(k, t);
+               
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
-                hashtable.Remove(kvp);
+                hashtable.Remove(item);
                 RemoveDictionary.Add(hashtable, stopwatch);
                 stopwatch.Stop();
             }

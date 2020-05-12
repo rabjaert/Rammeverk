@@ -56,7 +56,9 @@ namespace EpicAlgo.Trees.BinaryTree
         /// <summary>Removes all items from the <see cref="T:System.Collections.Generic.ICollection`1">ICollection</see>.</summary>
         public void Clear()
         {
+            Console.WriteLine("Keeping one object to prevent NullReferenceException for testing purposes only");
             DeleteTree(Root);
+           
         }
         
         /// <summary>Determines whether this instance contains the object.</summary>

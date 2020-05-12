@@ -8,8 +8,8 @@ namespace EpicAlgo.Models
     {
 
         public String Fornavn { get; set; }
-        private String Etternavn { get; set; }
-        private int Alder { get; set; }
+        public String Etternavn { get; set; }
+        public int Alder { get; set; }
 
     public Actor(String fornavn, String etternavn, int alder)
         {

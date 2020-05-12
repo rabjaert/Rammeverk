@@ -247,7 +247,7 @@ namespace EpicAlgo.HashTables.Abstract
 
             foreach (var element in this)
             {
-                if (!element.Key.Equals(default(T)))
+                if (!element.Key.Equals(default(K)))
                 {
                     Console.WriteLine("Key:" + " " + element.Key
                  + "\n" + "Value:" + " " + element.Value + "\n");

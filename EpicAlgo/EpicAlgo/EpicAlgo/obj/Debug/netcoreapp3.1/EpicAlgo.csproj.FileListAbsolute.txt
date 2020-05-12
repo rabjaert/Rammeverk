@@ -9,3 +9,14 @@ C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\n
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.pdb
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.dll
 C:\Users\Henri\Documents\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.pdb
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.exe
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.deps.json
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.runtimeconfig.json
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.runtimeconfig.dev.json
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.dll
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\bin\Debug\netcoreapp3.1\EpicAlgo.pdb
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.csprojAssemblyReference.cache
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.AssemblyInfoInputs.cache
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.AssemblyInfo.cs
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.dll
+D:\GitHub\Rammeverk\EpicAlgo\EpicAlgo\EpicAlgo\obj\Debug\netcoreapp3.1\EpicAlgo.pdb

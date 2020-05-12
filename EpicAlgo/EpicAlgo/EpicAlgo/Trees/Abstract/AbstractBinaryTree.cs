@@ -1,4 +1,4 @@
-﻿using EpicAlgo.Trees.BinaryTree;
+﻿using EpicAlgo.Trees.BinaryTree.Internal;
 using EpicAlgo.Trees.Interfaces.Internal;
 using System;
 using System.Collections.Generic;
@@ -163,16 +163,23 @@ namespace EpicAlgo.Trees.Abstract
 
         protected static IBinaryNode<T> DeleteTree(IBinaryNode<T> root)
         {
+           
             if (root != null)
             {
-                DeleteTree(root.GetLeftNode());
-                DeleteTree(root.GetRightNode());
-                root = null;
-                return root;
+               
+                
+                    
+                    root.SetLeftNode(DeleteTree(root.GetLeftNode()));
+                    root.SetRightNode(DeleteTree(root.GetLeftNode()));
+                    root = null;
+
+                return null;                
             }
             return null;
         }
         
+
+
         protected void PrintInOrder(IBinaryNode<T> root)
         {
             if (root != null)

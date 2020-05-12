@@ -1,7 +1,7 @@
 ﻿using System;
 using EpicAlgo.Trees.Interfaces.Internal;
 
-namespace EpicAlgo.Trees.BinaryTree
+namespace EpicAlgo.Trees.BinaryTree.Internal
 {
     sealed class BinaryNode<T> : IBinaryNode<T>
     {
