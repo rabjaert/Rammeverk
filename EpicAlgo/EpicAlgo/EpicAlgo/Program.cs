@@ -237,11 +237,11 @@ namespace EpicAlgo
             HashLinear<int, int> hl = new HashLinear<int, int>();
             HashQuadratic<int, int> hq = new HashQuadratic<int, int>();
 
-            List<KeyValuePair<int,int>> KVPCollection = new List<KeyValuePair<int, int>>();
+            List<KeyValuePair<int, int>> KVPCollection = new List<KeyValuePair<int, int>>();
 
-
-            Random RandomInt = new Random();
-            for (int i = 0; i < 100000; i++)
+           
+            
+            for (int i = 0; i < 1000; i++)
             {
 
                 KVPCollection.Add(new KeyValuePair<int, int>(i, i));
@@ -254,7 +254,7 @@ namespace EpicAlgo
             ht.InsertTime(KVPCollection);
             ht.RemoveTime(KVPCollection);
             ht.Print();
-
+            
 
             //var pizza = Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn));
             /*

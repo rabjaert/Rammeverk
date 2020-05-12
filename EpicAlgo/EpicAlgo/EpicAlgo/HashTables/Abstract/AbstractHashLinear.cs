@@ -13,6 +13,7 @@ namespace EpicAlgo.HashTables.Abstract
     {
 
         /// <summary>The table</summary>
+        
         protected KeyValuePair<K, T>[] Table;
 
         /// <summary>Gets the load factor.</summary>
@@ -22,6 +23,8 @@ namespace EpicAlgo.HashTables.Abstract
         /// <summary>Gets or sets the count.</summary>
         /// <value>The count.</value>
         protected int Count { set; get; }
+
+        private static int NumberOfInvokes { get; set; }
 
         /// <summary>Gets a value indicating whether this instance is read only.</summary>
         /// <value>
@@ -182,7 +185,7 @@ namespace EpicAlgo.HashTables.Abstract
         /// <returns></returns>
         public int GetIndex(K key, int attempt)
         {
-            return Convert.ToInt32(Math.Abs((key.GetHashCode() + attempt % Table.Length)));
+            return Convert.ToInt32(Math.Abs((key.GetHashCode() + attempt) % Table.Length));
 
         }
 
@@ -208,9 +211,10 @@ namespace EpicAlgo.HashTables.Abstract
         {
             if (LoadFactor < 0.75)
             {
-                Table = new KeyValuePair<K, T>[Table.Length*2];
+                Table = new KeyValuePair<K, T>[PrimeCalc(Table.Length + NumberOfInvokes)];
             }
-
+            
+            NumberOfInvokes ++;
         }
 
         /// <summary>Calculates the prime number.</summary>
