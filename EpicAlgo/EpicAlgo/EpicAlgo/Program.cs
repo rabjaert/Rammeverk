@@ -145,85 +145,115 @@ namespace EpicAlgo
           * 
           * 
           */
-          /*
-            Console.WriteLine("Scenario 7:\n");
-            var intComparer = Comparer<double>.Create((x, y) => -y.CompareTo(x));
-            BinaryTree<double> intTre = new BinaryTree<double>(intComparer);
-
-            List<double> intList = new List<double>();
-            Random ran = new Random();
-            for (int i = 0; i < 1000; i++)
-            {
-
-                intList.Add(ran.NextDouble());
-            }
-
-            TreeTimer<double> TreeTimer = new TreeTimer<double>(intTre);
-            TreeTimer.InsertTime(intList);
-            TreeTimer.RemoveTime(intList);
-            TreeTimer.Print();
-
             /*
-          * 
-          * SCENARIO 8:
-          * 
-          * Take the time of a hashtable.
+              Console.WriteLine("Scenario 7:\n");
+              var intComparer = Comparer<double>.Create((x, y) => -y.CompareTo(x));
+              BinaryTree<double> intTre = new BinaryTree<double>(intComparer);
 
-          * 
-          * 
-          */
-          /*
-            Console.WriteLine("Scenario 8:\n");
-            HashQuadratic<int, int> HashQuadraticTimer = new HashQuadratic<int, int>();
-            HashTimer<int, int> HashTimer  = new HashTimer<int, int>(HashQuadraticTimer);
-            
-            KeyValuePair<int, int> KvpArrayTest = new KeyValuePair<int, int>();
+              List<double> intList = new List<double>();
+              Random ran = new Random();
+              for (int i = 0; i < 1000; i++)
+              {
+
+                  intList.Add(ran.NextDouble());
+              }
+
+              TreeTimer<double> TreeTimer = new TreeTimer<double>(intTre);
+              TreeTimer.InsertTime(intList);
+              TreeTimer.RemoveTime(intList);
+              TreeTimer.Print();
+
+              /*
+            * 
+            * SCENARIO 8:
+            * 
+            * Take the time of a hashtable.
+
+            * 
+            * 
+            */
+            /*
+              Console.WriteLine("Scenario 8:\n");
+              HashQuadratic<int, int> HashQuadraticTimer = new HashQuadratic<int, int>();
+              HashTimer<int, int> HashTimer  = new HashTimer<int, int>(HashQuadraticTimer);
+
+              KeyValuePair<int, int> KvpArrayTest = new KeyValuePair<int, int>();
+              for (int i = 0; i < 100000; i++)
+              {
+                  KeyValuePair<int, int> temp = new KeyValuePair<int, int>(i, i / 2);
+
+              }
+
+
+              HashTimer.InsertTime(KvpArrayTest);
+              HashTimer.RemoveTime(KvpArrayTest);
+              HashTimer.PrintInsert();
+              HashTimer.PrintRemove();
+
+              /*
+             * 
+             * SCENARIO 9:
+             * 
+             * Take the time of two collections.
+
+             * 
+             * 
+             */
+            /*
+             var DoubleComparerToCompare = Comparer<double>.Create((x, y) => -y.CompareTo(x));
+             BinaryTree<double> IntTreeComparer = new BinaryTree<double>(DoubleComparerToCompare);
+             List<double> DoubleList = new List<double>();
+
+             List<double> DoubleCollection = new List<double>();
+
+
+             Random RandomDouble = new Random();
+             for (int i = 0; i < 100000; i++)
+             {
+
+                 DoubleCollection.Add(RandomDouble.NextDouble());
+             }
+
+             List<ICollection<double>> SaveCollection = new List<ICollection<double>>();
+             SaveCollection.Add(IntTreeComparer);
+             SaveCollection.Add(DoubleList);
+
+             TreeTimer<double> CollectionTimer = new TreeTimer<double>(SaveCollection);
+             CollectionTimer.InsertTime(DoubleCollection);
+             CollectionTimer.RemoveTime(DoubleCollection);
+             CollectionTimer.Print();
+
+             */
+            /*
+            * 
+            * SCENARIO 10:
+            * 
+            * Take the time of two keyvaluepair collections.
+
+            * 
+            * 
+            */
+
+            HashLinear<int, int> hl = new HashLinear<int, int>();
+            HashQuadratic<int, int> hq = new HashQuadratic<int, int>();
+
+            List<KeyValuePair<int,int>> KVPCollection = new List<KeyValuePair<int, int>>();
+
+
+            Random RandomInt = new Random();
             for (int i = 0; i < 100000; i++)
             {
-                KeyValuePair<int, int> temp = new KeyValuePair<int, int>(i, i / 2);
-                
-            }
-            
-           
-            HashTimer.InsertTime(KvpArrayTest);
-            HashTimer.RemoveTime(KvpArrayTest);
-            HashTimer.PrintInsert();
-            HashTimer.PrintRemove();
 
-            /*
-           * 
-           * SCENARIO 9:
-           * 
-           * Take the time of two collections.
-
-           * 
-           * 
-           */
-           
-            var DoubleComparerToCompare = Comparer<double>.Create((x, y) => -y.CompareTo(x));
-            BinaryTree<double> IntTreeComparer = new BinaryTree<double>(DoubleComparerToCompare);
-            List<double> DoubleList = new List<double>();
-
-            List<double> DoubleCollection = new List<double>();
-            
-            
-            Random RandomDouble = new Random();
-            for (int i = 0; i < 100000; i++)
-            {
-
-                DoubleCollection.Add(RandomDouble.NextDouble());
+                KVPCollection.Add(new KeyValuePair<int, int>(i, i));
             }
 
-            List<ICollection<double>> SaveCollection = new List<ICollection<double>>();
-            SaveCollection.Add(IntTreeComparer);
-            SaveCollection.Add(DoubleList);
-
-            TreeTimer<double> CollectionTimer = new TreeTimer<double>(SaveCollection);
-            CollectionTimer.InsertTime(DoubleCollection);
-            CollectionTimer.RemoveTime(DoubleCollection);
-            CollectionTimer.Print();
-
-
+            List<ICollection<KeyValuePair<int, int>>> collection = new List<ICollection<KeyValuePair<int, int>>>();
+            collection.Add(hl);
+            collection.Add(hq);
+            HashTimer<int, int> ht = new HashTimer<int, int>(collection);
+            ht.InsertTime(KVPCollection);
+            ht.RemoveTime(KVPCollection);
+            ht.Print();
 
 
             //var pizza = Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn));

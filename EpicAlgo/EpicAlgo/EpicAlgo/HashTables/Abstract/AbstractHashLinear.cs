@@ -208,7 +208,7 @@ namespace EpicAlgo.HashTables.Abstract
         {
             if (LoadFactor < 0.75)
             {
-                Table = new KeyValuePair<K, T>[PrimeCalc(Table.Length)];
+                Table = new KeyValuePair<K, T>[Table.Length*2];
             }
 
         }
