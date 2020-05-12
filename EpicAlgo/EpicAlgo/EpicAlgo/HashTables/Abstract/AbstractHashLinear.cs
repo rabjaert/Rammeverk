@@ -9,7 +9,7 @@ namespace EpicAlgo.HashTables.Abstract
     /// <summary>HashQuadratic class.</summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="T"></typeparam>
-    public class AbstractHashQuadratic<K, T>
+    public class AbstractHashLinear<K, T> : IEnumerable<KeyValuePair<K,T>>
     {
 
         /// <summary>The table</summary>
@@ -57,16 +57,10 @@ namespace EpicAlgo.HashTables.Abstract
                 return default(T);
             }
         }
-        
+
         /// <summary>Gets the enumerator.</summary>
         /// <returns></returns>
-       /* IEnumerator IEnumerable.GetEnumerator()
-        {
-           
 
-            return GetEnumerator();
-
-        }*/
 
         /// <summary>Adds the specified item.</summary>
         /// <param name="item">The item.</param>
@@ -128,7 +122,7 @@ namespace EpicAlgo.HashTables.Abstract
             Table = new KeyValuePair<K, T>[16];
             Count = 0;
         }
-        
+
         /// <summary>Determines whether this instance contains the object.</summary>
         /// <param name="key">The key.</param>
         /// <returns>
@@ -146,7 +140,7 @@ namespace EpicAlgo.HashTables.Abstract
             }
             return false;
         }
-        
+
         /// <summary>Finds the index of key.</summary>
         /// <param name="key">The key.</param>
         /// <returns></returns>
@@ -168,30 +162,30 @@ namespace EpicAlgo.HashTables.Abstract
             }
             return default(Int32);
         }
-        
+
         /// <summary>Gets the enumerator.</summary>
         /// <returns></returns>
         public IEnumerator<KeyValuePair<K, T>> GetEnumerator()
         {
 
-         
+
             foreach (var p in Table)
             {
                 yield return p;
             }
 
         }
-        
+
         /// <summary>Gets the index.</summary>
         /// <param name="key">The key.</param>
         /// <param name="attempt">The attempt.</param>
         /// <returns></returns>
         public int GetIndex(K key, int attempt)
         {
-            return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % Table.Length));
+            return Convert.ToInt32(Math.Abs((key.GetHashCode() + attempt % Table.Length)));
 
         }
-        
+
         /// <summary>Removes the specified key.</summary>
         /// <param name="key">The key.</param>
         /// <returns></returns>
@@ -200,25 +194,25 @@ namespace EpicAlgo.HashTables.Abstract
             if (!Contains(key))
             {
                 return false;
-                
+
             }
-            
+
             int index = FindIndexOfKey(key);
             Table[index] = default(KeyValuePair<K, T>);
             Count--;
             return true;
         }
-        
+
         /// <summary>Resizes if requires.</summary>
         private void ResizeIfRequires()
         {
             if (LoadFactor < 0.75)
             {
-                Table = new KeyValuePair<K, T>[PrimeCalc(Table.Length * 2)];
+                Table = new KeyValuePair<K, T>[PrimeCalc(Table.Length)];
             }
 
         }
-        
+
         /// <summary>Calculates the prime number.</summary>
         /// <param name="number">The number.</param>
         /// <returns></returns>
@@ -246,22 +240,28 @@ namespace EpicAlgo.HashTables.Abstract
                     return number;
             }
         }
-        
-        /// <summary>Prints this instance.</summary>
-        public void Print() {
 
-            foreach (var element in this) {
-                if (element.Key.ToString() != "0")
+        /// <summary>Prints this instance.</summary>
+        public void Print()
+        {
+
+            foreach (var element in this)
+            {
+                if (!element.Key.Equals(default(T)))
                 {
                     Console.WriteLine("Key:" + " " + element.Key
                  + "\n" + "Value:" + " " + element.Value + "\n");
                 }
 
-            
+
             }
-        
-        
+
+
         }
 
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

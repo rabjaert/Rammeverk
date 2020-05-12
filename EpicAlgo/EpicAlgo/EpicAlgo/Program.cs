@@ -1,4 +1,5 @@
-﻿using EpicAlgo.Models;
+﻿using EpicAlgo.HashTables;
+using EpicAlgo.Models;
 using EpicAlgo.Trees.BinaryTree;
 using EpicAlgo.Trees.Interfaces;
 using System;
@@ -112,7 +113,7 @@ namespace EpicAlgo
             navn.TakeTime(kvpArraytest);
             navn.Print();
 
-            */
+            *//*
             var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
             BinaryTree<double> intTre = new BinaryTree<double>(intComparer);
             BinaryTree<double> intTre1 = new BinaryTree<double>(intComparer);
@@ -190,27 +191,37 @@ namespace EpicAlgo
             TreeTimer<double> halla = new TreeTimer<double>(collections);
             halla.RemoveTime(intList);
             halla.PrintRemove();
-            */
+            *//*
             var fornavn = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
             BinaryTree<Actor> actorTre = new BinaryTree<Actor>(fornavn);
             actorTre.Add(person1);
             actorTre.Add(person2);
             Console.WriteLine(actorTre.FindData(person1));
 
+            */
+
+            HashLinear<int, int> hl = new HashLinear<int, int>();
+            hl.Add(new KeyValuePair<int, int>(1, 1));
+            hl.Add(new KeyValuePair<int, int>(2, 2));
+            hl.Add(new KeyValuePair<int, int>(3, 3));
+            HashQuadratic<int, int> hq = new HashQuadratic<int, int>();
+            hq.Add(new KeyValuePair<int, int>(1, 1));
+            hq.Add(new KeyValuePair<int, int>(2, 2));
+            hq.Add(new KeyValuePair<int, int>(3, 3));
+
+            Console.WriteLine("HashLinear\n");
+            hl.Print();
 
 
- 
-
-       
-
-            
 
 
 
 
-            
 
-           
+
+
+
+
 
         }
     }
