@@ -6,6 +6,7 @@ using EpicAlgo.Trees.Interfaces;
 using System;
 using System.Collections.Generic;
 
+
 namespace EpicAlgo
 {
     class Program
@@ -100,7 +101,7 @@ namespace EpicAlgo
          * 
          * SCENARIO 5:
          * 
-         * Make a HashQuadratic table and add some data to the table.
+         * Make a HashLinear table and add some data to the table.
 
          * 
          * 
@@ -233,7 +234,7 @@ namespace EpicAlgo
             * 
             * 
             */
-
+            
             HashLinear<int, int> hl = new HashLinear<int, int>();
             HashQuadratic<int, int> hq = new HashQuadratic<int, int>();
 
@@ -420,11 +421,6 @@ namespace EpicAlgo
             Console.WriteLine(actorTre.FindData(person1));
 
             */
-
-
-
-
-
 
 
 
