@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace EpicAlgo.Timers.Timer
 {
-    class HashTimer<K,T> : IHashComparison<K,T>
+    public class HashTimer<K,T> : IHashComparison<K,T>
     {
         /// <summary>The hash table</summary>
         private List<ICollection<KeyValuePair<K, T>>> HashTable = new List<ICollection<KeyValuePair<K, T>>>();
