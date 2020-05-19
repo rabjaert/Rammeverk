@@ -88,49 +88,60 @@ namespace EpicAlgo.Trees.Abstract
 
         protected IBinaryNode<T> DeleteNode(IBinaryNode<T> node, T data)
         {
-            if (node == null) return node;
+            try
+            {
 
-            if (Comparer.Compare(data, node.GetData()) < 0)
-            {
-                node.SetLeftNode(DeleteNode(node.GetLeftNode(), data));
-            }
-            else if (Comparer.Compare(data, node.GetData()) > 0)
-            {
-                node.SetRightNode(DeleteNode(node.GetRightNode(), data));
-            }
-            else
-            {
-                // node with no leaf nodes
-                if (node.GetLeftNode() == null && node.GetRightNode() == null)
+
+                if (node == null) return node;
+
+                if (Comparer.Compare(data, node.GetData()) < 0)
                 {
-                   
-                    return null;
+                    node.SetLeftNode(DeleteNode(node.GetLeftNode(), data));
                 }
-                else if (node.GetLeftNode() == null)
+                else if (Comparer.Compare(data, node.GetData()) > 0)
                 {
-                    // node with one node (no left node)
-                   
-                    return node.GetRightNode();
-                }
-                else if (node.GetRightNode() == null)
-                {
-                    // node with one node (no right node)
-                   
-                    return node.GetLeftNode();
+                    node.SetRightNode(DeleteNode(node.GetRightNode(), data));
                 }
                 else
                 {
-                    // nodes with two nodes
-                    // search for min number in right sub tree
-                    T minValues = MinValue(node.GetRightNode());
-                    node.SetData(minValues);
-                    node.SetRightNode(DeleteNode(node.GetRightNode(), minValues));
-     
-                }
-            }
+                    // node with no leaf nodes
+                    if (node.GetLeftNode() == null && node.GetRightNode() == null)
+                    {
 
-            return node;
-        }
+                        return null;
+                    }
+                    else if (node.GetLeftNode() == null)
+                    {
+                        // node with one node (no left node)
+
+                        return node.GetRightNode();
+                    }
+                    else if (node.GetRightNode() == null)
+                    {
+                        // node with one node (no right node)
+
+                        return node.GetLeftNode();
+                    }
+                    else
+                    {
+                        // nodes with two nodes
+                        // search for min number in right sub tree
+                        T minValues = MinValue(node.GetRightNode());
+                        node.SetData(minValues);
+                        node.SetRightNode(DeleteNode(node.GetRightNode(), minValues));
+
+                    }
+                }
+
+                return node;
+            }
+                        
+            catch (NullReferenceException ex)
+            {
+
+                throw ex;
+            }
+}
 
         protected IBinaryNode<T> InsertNode(IBinaryNode<T> node, T data)
         {
@@ -163,19 +174,24 @@ namespace EpicAlgo.Trees.Abstract
 
         protected static IBinaryNode<T> DeleteTree(IBinaryNode<T> root)
         {
-           
-            if (root != null)
+            try
             {
-               
-                
-                    
+                if (root != null)
+                {
                     root.SetLeftNode(DeleteTree(root.GetLeftNode()));
-                    root.SetRightNode(DeleteTree(root.GetLeftNode()));
+                    root.SetRightNode(DeleteTree(root.GetRightNode()));
                     root = null;
 
-                return null;                
+                    return null;
+                }
+                return null;
             }
-            return null;
+            catch (NullReferenceException nre)
+            {
+
+                return root;
+            }
+
         }
         
 
@@ -192,12 +208,23 @@ namespace EpicAlgo.Trees.Abstract
         
         protected void PrintPostOrder(IBinaryNode<T> root)
         {
-            throw new NotImplementedException();
+            if (root != null)
+            {
+                PrintPostOrder(root.GetLeftNode());
+                PrintPostOrder(root.GetRightNode());
+                Console.WriteLine(root.GetData().ToString() + " \n");
+            }
         }
 
         protected void PrintPreOrder(IBinaryNode<T> root)
         {
-            throw new NotImplementedException();
+            if (root != null)
+            {
+                Console.WriteLine(root.GetData().ToString() + " \n");
+                PrintPreOrder(root.GetLeftNode());
+                PrintPreOrder(root.GetRightNode());
+                
+            }
         }
 
     }

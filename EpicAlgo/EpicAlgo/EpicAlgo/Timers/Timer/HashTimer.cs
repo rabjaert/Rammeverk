@@ -48,7 +48,7 @@ namespace EpicAlgo.Timers.Timer
         /// <summary>Takes the time of inserting items.</summary>
         /// <param name="k">The k.</param>
         /// <param name="t">The t.</param>
-        public void InsertTime(KeyValuePair<K,T> item)
+        public void TakeTimeOfInsert(KeyValuePair<K,T> item)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
@@ -63,7 +63,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time of inserting items of a dictionary.</summary>
         /// <param name="dict">The dictionary.</param>
-        public void InsertTime(Dictionary<K, T> dict)
+        public void TakeTimeOfInsert(Dictionary<K, T> dict)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
@@ -83,7 +83,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time of inserting items of a list.</summary>
         /// <param name="kvp">The KVP.</param>
-        public void InsertTime(List<KeyValuePair<K, T>> kvp)
+        public void TakeTimeOfInsert(List<KeyValuePair<K, T>> kvp)
         {
 
 
@@ -107,7 +107,7 @@ namespace EpicAlgo.Timers.Timer
         /// <summary>Takes the time of removing items.</summary>
         /// <param name="k">The k.</param>
         /// <param name="t">The t.</param>
-        public void RemoveTime(KeyValuePair<K, T> item)
+        public void TakeTimeOfRemove(KeyValuePair<K, T> item)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
@@ -122,7 +122,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time of removing items of a dictionary.</summary>
         /// <param name="dict">The dictionary.</param>
-        public void RemoveTime(Dictionary<K, T> dict)
+        public void TakeTimeOfRemove(Dictionary<K, T> dict)
         {
             foreach (ICollection<KeyValuePair<K, T>> hashtable in HashTable)
             {
@@ -142,7 +142,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time of removing items of a list.</summary>
         /// <param name="kvp">The KVP.</param>
-        public void RemoveTime(List<KeyValuePair<K, T>> kvp)
+        public void TakeTimeOfRemove(List<KeyValuePair<K, T>> kvp)
         {
 
 
@@ -164,7 +164,7 @@ namespace EpicAlgo.Timers.Timer
         }
 
         /// <summary>Prints the amount of time it takes to insert.</summary>
-        public void PrintInsert()
+        public void PrintTimeOfInsert()
         {
             if (InsertDictionary.Count != 0)
             {
@@ -179,7 +179,7 @@ namespace EpicAlgo.Timers.Timer
         }
 
         /// <summary>Prints the amount of time it takes to remove.</summary>
-        public void PrintRemove()
+        public void PrintTimeOfRemove()
         {
             if (RemoveDictionary.Count != 0)
             {
@@ -196,8 +196,8 @@ namespace EpicAlgo.Timers.Timer
         /// <summary>Prints this instance.</summary>
         public void Print()
         {
-            PrintInsert();
-            PrintRemove();
+            PrintTimeOfInsert();
+            PrintTimeOfRemove();
         }
     }
 }

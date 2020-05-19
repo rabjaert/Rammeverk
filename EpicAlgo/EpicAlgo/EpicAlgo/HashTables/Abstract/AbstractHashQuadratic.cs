@@ -9,7 +9,7 @@ namespace EpicAlgo.HashTables.Abstract
     /// <summary>HashQuadratic class.</summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="T"></typeparam>
-    public class AbstractHashQuadratic<K, T>
+    public abstract class AbstractHashQuadratic<K, T>
     {
 
         /// <summary>The table</summary>

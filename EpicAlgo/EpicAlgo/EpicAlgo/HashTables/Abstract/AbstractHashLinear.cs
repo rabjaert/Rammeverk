@@ -9,7 +9,7 @@ namespace EpicAlgo.HashTables.Abstract
     /// <summary>HashQuadratic class.</summary>
     /// <typeparam name="K"></typeparam>
     /// <typeparam name="T"></typeparam>
-    public class AbstractHashLinear<K, T> : IEnumerable<KeyValuePair<K,T>>
+    public abstract class AbstractHashLinear<K, T> 
     {
 
         /// <summary>The table</summary>
@@ -261,11 +261,6 @@ namespace EpicAlgo.HashTables.Abstract
             }
 
 
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

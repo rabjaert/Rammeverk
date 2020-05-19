@@ -6,14 +6,14 @@ namespace EpicAlgo.Timers.Interfaces
 {
     public interface IHashComparison<K,T>
     {
-        public void InsertTime(KeyValuePair<K, T> item);
-        public void InsertTime(Dictionary<K, T> dict);
-        public void InsertTime(List<KeyValuePair<K, T>> kvp);
-        public void RemoveTime(KeyValuePair<K, T> item);
-        public void RemoveTime(Dictionary<K, T> dict);
-        public void RemoveTime(List<KeyValuePair<K, T>> kvp);
-        public void PrintInsert();
-        public void PrintRemove();
+        public void TakeTimeOfInsert(KeyValuePair<K, T> item);
+        public void TakeTimeOfInsert(Dictionary<K, T> dict);
+        public void TakeTimeOfInsert(List<KeyValuePair<K, T>> kvp);
+        public void TakeTimeOfRemove(KeyValuePair<K, T> item);
+        public void TakeTimeOfRemove(Dictionary<K, T> dict);
+        public void TakeTimeOfRemove(List<KeyValuePair<K, T>> kvp);
+        public void PrintTimeOfInsert();
+        public void PrintTimeOfRemove();
         public void Print();
 
     }

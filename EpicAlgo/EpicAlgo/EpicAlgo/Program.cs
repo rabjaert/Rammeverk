@@ -29,8 +29,8 @@ namespace EpicAlgo
              * 
              * 
             */
-            /*
-            Console.WriteLine("Scenario 1:\n");
+            
+            Console.WriteLine("Scenario 1: Make a binarytree and add some data to the tree.\n");
             var AgeComparer = Comparer<Actor>.Create((x, y) => -x.Alder.CompareTo(y.Alder));
             BinaryTree<Actor> ActorTree = new BinaryTree<Actor>(AgeComparer);
             ActorTree.Add(person1);
@@ -47,8 +47,8 @@ namespace EpicAlgo
             * 
             * 
            */
-            /*
-            Console.WriteLine("Scenario 2:\n");
+            
+            Console.WriteLine("Scenario 2: Use the binarytree to remove an item, and search for another item.\n");
             BinaryTree<Actor> ActorTre2 = new BinaryTree<Actor>(AgeComparer);
             ActorTre2.Add(person1);
             ActorTre2.Add(person2);
@@ -58,8 +58,8 @@ namespace EpicAlgo
             Console.WriteLine("Checking if" + " " + person4 + " " + "is in the binarytree" + " : " + ActorTre2.Contains(person4) + "\n");
             ActorTre2.PrintInOrder();
 
-            /*
-           * 
+            
+           /*
            * SCENARIO 3:
            * 
            * Fill the binary tree with alot of elements and clear it.
@@ -67,21 +67,21 @@ namespace EpicAlgo
            * 
            * 
           */
-            /*
-             Console.WriteLine("Scenario 3:\n");
+            
+             Console.WriteLine("Scenario 3: Fill the binary tree with alot of elements and clear it.\n");
              var IntComparer = Comparer<double>.Create((x, y) => -x.CompareTo(y));
              BinaryTree<double> IntTree = new BinaryTree<double>(IntComparer);
              List<double> IntList = new List<double>();
              Random random = new Random();
-             for (var i = 0; i < 10000; i++) {
+             for (var i = 0; i < 1000; i++) {
                  IntList.Add(random.NextDouble());
              }
              IntTree.AddList(IntList);
              IntTree.Clear();
              IntTree.PrintInOrder();
 
-             /*
-           * 
+             
+           /* 
            * SCENARIO 4:
            * 
            * Make a HashQuadratic table and add some data to the table.
@@ -89,8 +89,8 @@ namespace EpicAlgo
            * 
            * 
           */
-            /*
-            Console.WriteLine("Scenario 4:\n");
+            
+            Console.WriteLine("Scenario 4: Make a HashQuadratic table and add some data to the table.\n");
             HashQuadratic<int, string> HashString = new HashQuadratic<int, string>();
             HashString.Add(new KeyValuePair<int, string>(1, "Peter"));
             HashString.Add(new KeyValuePair<int, string>(2, "Steve"));
@@ -106,16 +106,16 @@ namespace EpicAlgo
          * 
          * 
         */
-            /*
-            Console.WriteLine("Scenario 5:\n");
+            
+            Console.WriteLine("Scenario 5: Make a HashLinear table and add some data to the table.\n");
             HashLinear<int, Actor> HashActor = new HashLinear<int, Actor>();
             HashActor.Add(new KeyValuePair<int, Actor>(1, person1));
             HashActor.Add(new KeyValuePair<int, Actor>(2, person2));
             HashActor.Add(new KeyValuePair<int, Actor>(3, person3));
             HashActor.Print();
 
-            /*
-          * 
+            
+          /* 
           * SCENARIO 6:
           * 
           * Use the hashtables to remove an item, and search for another item.
@@ -124,8 +124,8 @@ namespace EpicAlgo
           * 
           */
 
-            /*
-            Console.WriteLine("Scenario 6:\n");
+            
+            Console.WriteLine("Scenario 6: Use the hashtables to remove an item, and search for another item.\n");
             HashString.Remove(1);
             HashString.Remove(2);
             Console.WriteLine("Checking if" + " " + "Dave" + " " + "is in the table" + " : " + HashString.Contains(3) + "\n");
@@ -137,8 +137,8 @@ namespace EpicAlgo
             HashActor.Print();
 
 
-            /*
-          * 
+            
+          /* 
           * SCENARIO 7:
           * 
           * Take the time of a binary tree.
@@ -146,8 +146,8 @@ namespace EpicAlgo
           * 
           * 
           */
-            /*
-              Console.WriteLine("Scenario 7:\n");
+            
+              Console.WriteLine("Scenario 7: Take the time of a binary tree.\n");
               var intComparer = Comparer<double>.Create((x, y) => -y.CompareTo(x));
               BinaryTree<double> intTre = new BinaryTree<double>(intComparer);
 
@@ -160,12 +160,12 @@ namespace EpicAlgo
               }
 
               TreeTimer<double> TreeTimer = new TreeTimer<double>(intTre);
-              TreeTimer.InsertTime(intList);
-              TreeTimer.RemoveTime(intList);
+              TreeTimer.TakeTimeOfInsert(intList);
+              TreeTimer.TakeTimeOfRemove(intList);
               TreeTimer.Print();
 
-              /*
-            * 
+              
+            /* 
             * SCENARIO 8:
             * 
             * Take the time of a hashtable.
@@ -173,35 +173,35 @@ namespace EpicAlgo
             * 
             * 
             */
-            /*
-              Console.WriteLine("Scenario 8:\n");
+            
+              Console.WriteLine("\nScenario 8: Take the time of a hashtable.\n");
               HashQuadratic<int, int> HashQuadraticTimer = new HashQuadratic<int, int>();
               HashTimer<int, int> HashTimer  = new HashTimer<int, int>(HashQuadraticTimer);
 
               KeyValuePair<int, int> KvpArrayTest = new KeyValuePair<int, int>();
-              for (int i = 0; i < 100000; i++)
+              for (int i = 0; i < 1000; i++)
               {
                   KeyValuePair<int, int> temp = new KeyValuePair<int, int>(i, i / 2);
 
               }
 
 
-              HashTimer.InsertTime(KvpArrayTest);
-              HashTimer.RemoveTime(KvpArrayTest);
-              HashTimer.PrintInsert();
-              HashTimer.PrintRemove();
+              HashTimer.TakeTimeOfInsert(KvpArrayTest);
+              HashTimer.TakeTimeOfRemove(KvpArrayTest);
+              HashTimer.PrintTimeOfInsert();
+              HashTimer.PrintTimeOfRemove();
 
-              /*
-             * 
-             * SCENARIO 9:
-             * 
-             * Take the time of two collections.
 
-             * 
-             * 
-             */
-            /*
-             var DoubleComparerToCompare = Comparer<double>.Create((x, y) => -y.CompareTo(x));
+            /* 
+            * SCENARIO 9:
+            * 
+            * Take the time of two collections.
+
+            * 
+            * 
+            */
+            Console.WriteLine("\nScenario 9: Take the time of two collections.\n");
+            var DoubleComparerToCompare = Comparer<double>.Create((x, y) => -y.CompareTo(x));
              BinaryTree<double> IntTreeComparer = new BinaryTree<double>(DoubleComparerToCompare);
              List<double> DoubleList = new List<double>();
 
@@ -209,7 +209,7 @@ namespace EpicAlgo
 
 
              Random RandomDouble = new Random();
-             for (int i = 0; i < 100000; i++)
+             for (int i = 0; i < 1000; i++)
              {
 
                  DoubleCollection.Add(RandomDouble.NextDouble());
@@ -220,11 +220,11 @@ namespace EpicAlgo
              SaveCollection.Add(DoubleList);
 
              TreeTimer<double> CollectionTimer = new TreeTimer<double>(SaveCollection);
-             CollectionTimer.InsertTime(DoubleCollection);
-             CollectionTimer.RemoveTime(DoubleCollection);
+             CollectionTimer.TakeTimeOfInsert(DoubleCollection);
+             CollectionTimer.TakeTimeOfRemove(DoubleCollection);
              CollectionTimer.Print();
 
-             */
+
             /*
             * 
             * SCENARIO 10:
@@ -234,7 +234,7 @@ namespace EpicAlgo
             * 
             * 
             */
-            
+            Console.WriteLine("\nScenario 10: Take the time of two keyvaluepair collections.\n");
             HashLinear<int, int> hl = new HashLinear<int, int>();
             HashQuadratic<int, int> hq = new HashQuadratic<int, int>();
 
@@ -252,183 +252,11 @@ namespace EpicAlgo
             collection.Add(hl);
             collection.Add(hq);
             HashTimer<int, int> ht = new HashTimer<int, int>(collection);
-            ht.InsertTime(KVPCollection);
-            ht.RemoveTime(KVPCollection);
+            ht.TakeTimeOfInsert(KVPCollection);
+            ht.TakeTimeOfRemove(KVPCollection);
             ht.Print();
             
-
-            //var pizza = Comparer<Actor>.Create((x, y) => -y.Fornavn.CompareTo(x.Fornavn));
-            /*
-            //BinaryTree Example
-            BinaryTree<Actor> testTre = new BinaryTree<Actor>(pizza);
-
-            BinaryTree<Actor> testTre1 = new BinaryTree<Actor>(pizza);
-
-
-            KeyValuePair<int, Double>[] kvpArray = new KeyValuePair<int, double>[50];
-            /*
-                        for (int i = 0; i < 50; i++)
-                        {
-
-                            hash2.Add(i, i / 2);
-                        }
-
-                        List<IHashTableDict<int, Double>> testa = new List<IHashTableDict<int, double>>();
-
-                        testa.Add(hash);
-                        testa.Add(hash1);
-                        testa.Add(hash2);
-
-                        HashTimer<int, Double> hashtimer = new HashTimer<int, double>(testa);
-
-                        HashQ<int, int> test = new HashQ<int, int>();
-
-                        test.Add(1, 1);
-                        test.Add(2, 2);
-                        test.Add(3, 3);
-                        test.Add(4, 4);
-
-                        var ad = test[4];
-
-                        /*
-                        testTre1.AddList(ikkeAvføring);
-
-                        testTre1.PrintInOrder();
-                        */
-            //var pizza = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
-
-            /*
-
-            Console.WriteLine("");
-            var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
-
-
-            HashQuadratic<int, Double> hashtable = new HashQuadratic<int, Double>();
-            HashQuadratic<int, Double> hashtable1 = new HashQuadratic<int, Double>();
-
-            BinaryTree<Double> intTre = new BinaryTree<Double>(intComparer);
-            BinaryTree<Double> intTre1 = new BinaryTree<Double>(intComparer);
-
-
-
-            List<ITree<Double>> myList = new List<ITree<Double>>();
-
-
-
-            KeyValuePair<int, Actor> t = new KeyValuePair<int, Actor>();
-            
-   */
-            /*
-            KeyValuePair<int, Double>[] kvpArraytest = new KeyValuePair<int, double>[100000];
-            for (int i = 0; i < 100000; i++)
-            {
-                KeyValuePair<int, Double> temp = new KeyValuePair<int, Double>(i, i/2);
-                kvpArraytest[i] = temp;
-            }
-
-            HashQ<int, Double> hah1 = new HashQ<int, double>();
-            HashQ<int, Double> hah2 = new HashQ<int, double>();
-            HashQ<int, Double> hah3 = new HashQ<int, double>();
-
-            HashTimer<int, Double> navn = new HashTimer<int, double>(hah1);
-
-            navn.TakeTime(kvpArraytest);
-            navn.Print();
-
-            *//*
-            var intComparer = Comparer<Double>.Create((x, y) => -y.CompareTo(x));
-            BinaryTree<double> intTre = new BinaryTree<double>(intComparer);
-            BinaryTree<double> intTre1 = new BinaryTree<double>(intComparer);
-            BinaryTree<double> intTre2 = new BinaryTree<double>(intComparer);
-
-            List<ITreeCollection<double>> treelist = new List<ITreeCollection<double>>();
-            treelist.Add(intTre);
-            treelist.Add(intTre1);
-            treelist.Add(intTre2);
-            List<double> intList = new List<double>();
-            Random ran = new Random();
-            for (int i = 0; i < 1000000; i++)
-            {
-              
-                intList.Add(ran.NextDouble());
-            }
-
-            /*TreeTimer<double> treeTimer = new TreeTimer<double>(treelist);
-            treeTimer.InsertTime(intList);
-            treeTimer.RemoveTime(intList);
-            treeTimer.Print();
-            */
-
-            //*****************************************/
-
-
-            //HashQuadratic Example
-
-
-            //*****************************************//
-            /*
-            HashQuadratic<int, Actor> table = new HashQuadratic<int, Actor>();
-            table.Add(1, person1);
-            table.Add(2, person2);
-            table.Add(3, person3);
-            table.Add(4, person4);
-            table.Add(5, person5);
-            table.Print();
-            Console.WriteLine("\n");
-            Console.WriteLine("Fjerner en person");
-            Console.WriteLine("\n");
-            table.Remove(5);
-            table.Print();
-            */
-            /*
-            var comparer = Comparer<double>.Create((x, y) => -y.CompareTo(x));
-            List<double> intList1 = new List<double>();
            
-            Random ran1 = new Random();
-            for (int i = 0; i < 10000; i++)
-            {
-
-                intList.Add(ran.NextDouble());
-            }
-
-            BinaryTree<double> bin = new BinaryTree<double>(comparer);
-            bin.AddList(intList);
-
-            List<double> heiIgjen = new List<double>(0);
-
-            /*
-            for (var i = 0; i < 500000; i++) {
-
-                
-                
-            }*/
-            /*
-            heiIgjen.AddRange(intList);
-            bin.AddList(intList);
-            List<ICollection<double>> collections = new List<ICollection<double>>();
-
-            collections.Add(bin);
-            collections.Add(heiIgjen);
-            //Console.WriteLine(bin.FindData(5));
-            TreeTimer<double> halla = new TreeTimer<double>(collections);
-            halla.RemoveTime(intList);
-            halla.PrintRemove();
-            *//*
-            var fornavn = Comparer<Actor>.Create((x, y) => y.Fornavn.CompareTo(x.Fornavn));
-            BinaryTree<Actor> actorTre = new BinaryTree<Actor>(fornavn);
-            actorTre.Add(person1);
-            actorTre.Add(person2);
-            Console.WriteLine(actorTre.FindData(person1));
-
-            */
-
-
-
-
-
-
-
-
 
         }
     }

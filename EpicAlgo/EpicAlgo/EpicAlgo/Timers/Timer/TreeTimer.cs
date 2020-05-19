@@ -51,7 +51,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time of inserting items.</summary>
         /// <param name="t">The t.</param>
-        public void InsertTime(T t)
+        public void TakeTimeOfInsert(T t)
         {
             foreach (ICollection<T> tree in Tree)
             {
@@ -67,7 +67,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time of inserting items to a list.</summary>
         /// <param name="t">The t.</param>
-        public void InsertTime(List<T> t)
+        public void TakeTimeOfInsert(List<T> t)
         {
             foreach (ICollection<T> tree in Tree)
             {
@@ -86,7 +86,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time to removing items.</summary>
         /// <param name="t">The t.</param>
-        public void RemoveTime(T t)
+        public void TakeTimeOfRemove(T t)
         {
             foreach (ICollection<T> tree in Tree)
             {
@@ -102,7 +102,7 @@ namespace EpicAlgo.Timers.Timer
 
         /// <summary>Takes the time to removing items of a list.</summary>
         /// <param name="t">The t.</param>
-        public void RemoveTime(List<T> t)
+        public void TakeTimeOfRemove(List<T> t)
         {
             foreach (ICollection<T> tree in Tree)
             {
@@ -120,7 +120,7 @@ namespace EpicAlgo.Timers.Timer
         }
 
         /// <summary>Prints the insert time.</summary>
-        public void PrintInsert()
+        public void PrintTimeOfInsert()
         {
             if (InsertDictionary.Count != 0)
             {
@@ -129,13 +129,13 @@ namespace EpicAlgo.Timers.Timer
                     int seconds = item.Value.Elapsed.Seconds;
                     int miliseconds = item.Value.Elapsed.Milliseconds;
 
-                    Console.WriteLine("HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
+                    Console.WriteLine("Inserted in Collection in:\n " + "Collection: "  + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
                 }
             }
         }
 
         /// <summary>Prints the remove time.</summary>
-        public void PrintRemove()
+        public void PrintTimeOfRemove()
         {
             if (RemoveDictionary.Count != 0)
             {
@@ -144,7 +144,7 @@ namespace EpicAlgo.Timers.Timer
                     int seconds = item.Value.Elapsed.Seconds;
                     int miliseconds = item.Value.Elapsed.Milliseconds;
 
-                    Console.WriteLine("HashTable: " + item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
+                    Console.WriteLine("Inserted in Collection in: \n" +"Collection: "+item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
                 }
             }
 
@@ -153,8 +153,8 @@ namespace EpicAlgo.Timers.Timer
         /// <summary>Prints this instance.</summary>
         public void Print()
         {
-            PrintInsert();
-            PrintRemove();
+            PrintTimeOfInsert();
+            PrintTimeOfRemove();
         }
     }
 }

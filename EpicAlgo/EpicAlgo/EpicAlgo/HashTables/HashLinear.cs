@@ -42,8 +42,14 @@ namespace EpicAlgo.HashTables
         {
             return base.Remove(item);
         }
-
-
+        public IEnumerator<KeyValuePair<K, T>> GetEnumerator()
+        {
+            return base.GetEnumerator();
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return base.GetEnumerator();
+        }
         public void Print()
         {
             base.Print();

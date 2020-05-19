@@ -133,11 +133,20 @@ namespace EpicAlgo.Trees.BinaryTree
         /// </returns>
         public bool Remove(T item)
         {
-            if (DeleteNode(Root, item).GetData().Equals(item))
+            try
             {
-                return true;
+                if (DeleteNode(Root, item).GetData().Equals(item))
+                {
+                    return true;
+                }
+                else return false;
             }
-            else return false;
+            catch (NullReferenceException nre)
+            {
+
+                return false;
+            }
+
         }
         
         /// <summary>Returns an enumerator that iterates through a collection.</summary>

@@ -10,8 +10,8 @@ namespace EpicAlgo.Trees.Interfaces.Internal
         void SetLeftNode(IBinaryNode<T> left);
         IBinaryNode<T> GetRightNode();
         void SetRightNode(IBinaryNode<T> right);
-        Boolean HasLeftNode();
-        Boolean HasRightNode();
+        bool HasLeftNode();
+        bool HasRightNode();
 
     }
 }
