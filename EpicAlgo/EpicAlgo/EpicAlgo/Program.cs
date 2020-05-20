@@ -96,6 +96,7 @@ namespace EpicAlgo
             HashString.Add(new KeyValuePair<int, string>(2, "Steve"));
             HashString.Add(new KeyValuePair<int, string>(3, "Dave"));
             HashString.Print();
+          
 
           /*
          * 
@@ -133,7 +134,7 @@ namespace EpicAlgo
 
             HashActor.Remove(1);
             HashActor.Remove(2);
-            Console.WriteLine("Checking if" + " " + "Zelda" + " " + "is in the table" + " : " + HashActor.Contains(3) + "\n");
+            Console.WriteLine("Checking if" + " " + "Snoop" + " " + "is in the table" + " : " + HashActor.Contains(2) + "\n");
             HashActor.Print();
 
 

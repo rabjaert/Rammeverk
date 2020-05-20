@@ -96,10 +96,7 @@ namespace EpicAlgo.HashTables.Abstract
         /// <summary>Removes the specified item.</summary>
         /// <param name="item">The item.</param>
         /// <returns></returns>
-        protected bool Remove(KeyValuePair<K, T> item)
-        {
-            return Remove(item.Key);
-        }
+        
 
         /// <summary>Adds the specified key.</summary>
         /// <param name="key">The key.</param>
@@ -122,6 +119,25 @@ namespace EpicAlgo.HashTables.Abstract
             }
         }
 
+        /// <summary>Removes the specified key.</summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
+        protected bool Remove(K key)
+        {
+            if (!Contains(key))
+            {
+                return false;
+
+            }
+
+            int index = FindIndexOfKey(key);
+            Table[index] = default(KeyValuePair<K, T>);
+            Count--;
+            return true;
+        }
+
+
+
         /// <summary>Clears this instance.</summary>
         protected void Clear()
         {
@@ -133,7 +149,7 @@ namespace EpicAlgo.HashTables.Abstract
         /// <param name="key">The key.</param>
         /// <returns>
         ///   <c>true</c> if [contains] [the specified key]; otherwise, <c>false</c>.</returns>
-        public bool Contains(K key)
+        protected bool Contains(K key)
         {
             int attempt = 0;
             while (attempt <= Count)
@@ -151,7 +167,7 @@ namespace EpicAlgo.HashTables.Abstract
         /// <param name="key">The key.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException">There is no such element in the table!</exception>
-        public int FindIndexOfKey(K key)
+        private int FindIndexOfKey(K key)
         {
             if (!Contains(key))
             {
@@ -186,28 +202,13 @@ namespace EpicAlgo.HashTables.Abstract
         /// <param name="key">The key.</param>
         /// <param name="attempt">The attempt.</param>
         /// <returns></returns>
-        public int GetIndex(K key, int attempt)
+        private int GetIndex(K key, int attempt)
         {
             return Convert.ToInt32(Math.Abs((key.GetHashCode() + Math.Pow(attempt, 2)) % Table.Length));
 
         }
         
-        /// <summary>Removes the specified key.</summary>
-        /// <param name="key">The key.</param>
-        /// <returns></returns>
-        public bool Remove(K key)
-        {
-            if (!Contains(key))
-            {
-                return false;
-                
-            }
-            
-            int index = FindIndexOfKey(key);
-            Table[index] = default(KeyValuePair<K, T>);
-            Count--;
-            return true;
-        }
+      
         
         /// <summary>Resizes if requires.</summary>
         private void ResizeIfRequires()
@@ -248,7 +249,7 @@ namespace EpicAlgo.HashTables.Abstract
         }
         
         /// <summary>Prints this instance.</summary>
-        public void Print() {
+        protected void Print() {
 
             foreach (var element in this)
             {

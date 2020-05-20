@@ -31,6 +31,10 @@ namespace EpicAlgo.HashTables
         {
             return base.Contains(item);
         }
+        public bool Contains(K item)
+        {
+            return base.Contains(item);
+        }
 
         public void CopyTo(KeyValuePair<K, T>[] array, int arrayIndex)
         {
@@ -43,6 +47,11 @@ namespace EpicAlgo.HashTables
         }
 
         public bool Remove(KeyValuePair<K, T> item)
+        {
+            return base.Remove(item.Key);
+        }
+
+        public bool Remove(K item)
         {
             return base.Remove(item);
         }
