@@ -163,7 +163,7 @@ namespace EpicAlgo.Trees.Abstract
             return node;
         }
 
-        protected T MinValue(IBinaryNode<T> root)
+        private T MinValue(IBinaryNode<T> root)
         {
             if (root.GetLeftNode() != null)
             {
