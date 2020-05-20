@@ -1,12 +1,9 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EpicAlgo.HashTables;
-
-using EpicAlgo.Timers;
-using EpicAlgo.Trees.BinaryTree;
-using System.Collections.Generic;
 using EpicAlgo.Models;
-using EpicAlgo.Timers.Interfaces;
 using EpicAlgo.Timers.Timer;
+using EpicAlgo.Trees.BinaryTree;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace UnitTestProject
 {
@@ -16,17 +13,17 @@ namespace UnitTestProject
         [TestMethod]
         public void TestMetodAddingBinaryTree()
         {
-           
+
             var AgeComparer = Comparer<Actor>.Create((x, y) => -x.Alder.CompareTo(y.Alder));
             BinaryTree<Actor> ActorTree = new BinaryTree<Actor>(AgeComparer);
-            
+
 
             var actual = new Actor("Roger", "Knutsen", 67);
-        
+
             ActorTree.Add(actual);
 
             Assert.AreEqual(ActorTree.FindData(actual), actual);
-         
+
         }
 
         [TestMethod]
@@ -40,7 +37,7 @@ namespace UnitTestProject
             var actual = new Actor("Roger", "Knutsen", 67);
             ActorTree.Add(actual);
             ActorTree.Add(new Actor("test", "test", 19));
-        
+
             //should return true
             Assert.IsTrue(ActorTree.Contains(actual));
 
@@ -51,11 +48,11 @@ namespace UnitTestProject
         {
             HashQuadratic<int, string> HashString = new HashQuadratic<int, string>();
             HashString.Add(new KeyValuePair<int, string>(1, "Peter"));
-        
+
 
             HashLinear<int, string> HashString1 = new HashLinear<int, string>();
             HashString1.Add(new KeyValuePair<int, string>(1, "Peter"));
-      
+
             //should return true
             Assert.IsTrue(HashString.Contains(1));
             Assert.IsTrue(HashString1.Contains(1));
@@ -72,10 +69,10 @@ namespace UnitTestProject
             HashString1.Add(new KeyValuePair<int, string>(1, "Peter"));
 
             //should return true
-            
+
             Assert.IsTrue(HashString.Remove(1));
             Assert.IsTrue(HashString1.Remove(1));
-            
+
 
         }
 
