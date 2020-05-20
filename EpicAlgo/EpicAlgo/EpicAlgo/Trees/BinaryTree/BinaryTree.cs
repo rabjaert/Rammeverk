@@ -143,8 +143,8 @@ namespace EpicAlgo.Trees.BinaryTree
             }
             catch (NullReferenceException nre)
             {
-
                 return false;
+              
             }
 
         }

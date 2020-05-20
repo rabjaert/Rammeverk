@@ -179,7 +179,7 @@ namespace EpicAlgo
               HashTimer<int, int> HashTimer  = new HashTimer<int, int>(HashQuadraticTimer);
 
               KeyValuePair<int, int> KvpArrayTest = new KeyValuePair<int, int>();
-              for (int i = 0; i < 1000; i++)
+              for (int i = 0; i < 10000; i++)
               {
                   KeyValuePair<int, int> temp = new KeyValuePair<int, int>(i, i / 2);
 
@@ -209,7 +209,7 @@ namespace EpicAlgo
 
 
              Random RandomDouble = new Random();
-             for (int i = 0; i < 1000; i++)
+             for (int i = 0; i < 10000; i++)
              {
 
                  DoubleCollection.Add(RandomDouble.NextDouble());
@@ -242,7 +242,7 @@ namespace EpicAlgo
 
            
             
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10000; i++)
             {
 
                 KVPCollection.Add(new KeyValuePair<int, int>(i, i));

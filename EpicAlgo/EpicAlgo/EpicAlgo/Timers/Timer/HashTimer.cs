@@ -9,8 +9,8 @@ namespace EpicAlgo.Timers.Timer
     {
         /// <summary>The hash table</summary>
         private List<ICollection<KeyValuePair<K, T>>> HashTable = new List<ICollection<KeyValuePair<K, T>>>();
-        private Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> InsertDictionary { get; set; } = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
-        private Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> RemoveDictionary { get; set; } = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
+        public Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> InsertDictionary {  get; private set; } = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
+        public Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch> RemoveDictionary { get; private set; } = new Dictionary<ICollection<KeyValuePair<K, T>>, Stopwatch>();
 
         /// <summary>Initializes a new instance of the <see cref="HashTimer{K, T}" /> class.</summary>
         /// <param name="hashtable">The hashtable.</param>

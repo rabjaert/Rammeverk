@@ -11,10 +11,10 @@ namespace EpicAlgo.Timers.Timer
         private List<ICollection<T>> Tree = new List<ICollection<T>>();
         
         /// <summary>Making global dictionaries with time stamps.</summary>
-        private Dictionary<ICollection<T>, Stopwatch> InsertDictionary { get; set; } = new Dictionary<ICollection<T>, Stopwatch>();
+        public Dictionary<ICollection<T>, Stopwatch> InsertDictionary { get; private set; } = new Dictionary<ICollection<T>, Stopwatch>();
         
         /// <summary>Making global dictionaries with time stamps.</summary>
-        private Dictionary<ICollection<T>, Stopwatch> RemoveDictionary { get; set; } = new Dictionary<ICollection<T>, Stopwatch>();
+        public Dictionary<ICollection<T>, Stopwatch> RemoveDictionary { get; private set; } = new Dictionary<ICollection<T>, Stopwatch>();
 
         /// <summary>Initializes a new instance of the <see cref="TreeTimer{T}" /> class.</summary>
         /// <param name="tree">The tree.</param>
@@ -144,7 +144,7 @@ namespace EpicAlgo.Timers.Timer
                     int seconds = item.Value.Elapsed.Seconds;
                     int miliseconds = item.Value.Elapsed.Milliseconds;
 
-                    Console.WriteLine("Inserted in Collection in: \n" +"Collection: "+item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
+                    Console.WriteLine("Removed in Collection in: \n" +"Collection: "+item.Key + " Time: " + seconds + " Seconds, " + miliseconds + " Miliseconds");
                 }
             }
 
