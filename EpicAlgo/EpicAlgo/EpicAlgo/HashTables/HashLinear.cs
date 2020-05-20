@@ -36,8 +36,6 @@ namespace EpicAlgo.HashTables
         {
             base.CopyTo(array, arrayIndex);
         }
-
-
         public bool Remove(KeyValuePair<K, T> item)
         {
             return base.Remove(item);
