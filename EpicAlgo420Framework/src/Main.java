@@ -1,26 +1,34 @@
 import java.util.ArrayList;
 import java.util.Comparator;
-
-import Data.BinaryTree.BinaryTree;
-import Data.BinaryTree.BinaryTreeOld;
 import Data.BinaryTree.TestGenericBinary;
+import Data.HashMap.Map;
 import Data.Model.Actor;
 
 public class Main {
 
     public static void main(String[] args) {
 
-       BinaryTreeOld<Integer> etTre = new BinaryTreeOld<>();
+        Map<Integer, Actor>map = new Map<>(); 
+        
+        Actor person20 = new Actor("Roger", "Knutsen", 20);
+        Actor person22 = new Actor("Robert", "Lundeby", 32);
+        Actor person33 = new Actor("Hubert", "Bondeby", 31);
+
+        System.out.println("HashTest \n");
+        map.add(100, person20); 
+        map.add(50, person22); 
+        map.add(69, person33); 
+
+        System.out.println(map.size()); 
+        System.out.println(map.getBucketArray().toString());
+        System.out.println(map.remove(50)); 
+        System.out.println(map.size()); 
+        System.out.println(map.isEmpty()); 
+
+        System.out.println("\n HashTest \n");
 
 
-        Integer [] data = {1,5,6,10,6,5,2};
-
-        for(Integer i : data){
-           etTre.insertWord(i);
-        }
-
-        etTre.inOrder(etTre.root);
-       
+      
 
         Actor person1 = new Actor("Roger", "Knutsen", 20);
         Actor person2 = new Actor("Robert", "Lundeby", 32);
